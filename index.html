@@ -3,14 +3,6 @@
 <head>
   <meta charset="utf-8">
   
-  
-
-  
-  
-  
-  
-  
-  
   <title>Chreem&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
@@ -20,155 +12,278 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chreem's Blog">
   
+    <link rel="alternative" href="/atom.xml" title="Chreem&#39;s Blog" type="application/atom+xml">
   
-    <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-
+    
+    
   
-  <!-- baidu webmaster push -->
-  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: true,
+          isPost: false,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
 </head>
-<body class="home blog custom-background custom-font-enabled single-author">
-  <div id="page" class="hfeed site">
-      <header id="masthead" class="site-header" role="banner">
-    <hgroup>
-      <h1 class="site-title">
-        <a href="/" title="Chreem&#39;s Blog" rel="home">Chreem&#39;s Blog</a>
-      </h1>
-      
-        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
-        <h2 class="site-description"><script>hitokoto();</script></h2>
-      
-    </hgroup>
-
-    <nav id="site-navigation" class="main-navigation" role="navigation">
-            <button class="menu-toggle">菜单</button>
-            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
-            <div class="menu-main-container">
-                <ul id="menu-main" class="nav-menu">
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
-                
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
-                
-                </ul>
-            </div>
-    </nav>
-</header>
-      <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-    <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/03/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
             
-            <a href="javascript:void(0);" data-url="https://chreem.github.io/2017/03/04/hello-world/" data-id="cizuui5dt0001w8l2dqwu58kn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
 
-    <div class="entry-content">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Chreem</a></h1>
+        </hgroup>
 
-      
-    </div><!-- .entry-content -->
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
 
-    <footer class="entry-meta">
-    <a href="/2017/03/04/hello-world/">
-    <time datetime="2017-03-04T06:58:23.886Z" class="entry-date">
-        2017-03-04
-    </time>
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/Home">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=PAkNDgsKBQ4MCnxNTRJfU1E" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/luuman" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="#" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="#" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="#" title="twitter">twitter</a>
+                            
+                                <a class="fl linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Chreem</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Chreem</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/Home">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=PAkNDgsKBQ4MCnxNTRJfU1E" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/luuman" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="#" title="google">google</a>
+                    
+                        <a class="twitter" target="_blank" href="#" title="twitter">twitter</a>
+                    
+                        <a class="linkedin" target="_blank" href="#" title="linkedin">linkedin</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-docker-container-ip" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/03/docker-container-ip/" class="article-date">
+      <time datetime="2017-03-03T01:14:23.000Z" itemprop="datePublished">2017-03-03</time>
 </a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-docker-container-ip" class="post-docker-container-ip post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
+      <header class="article-header">
         
   
-    <h1 class="entry-title">
+    <h1 itemprop="name">
       <a class="article-title" href="/2017/03/03/docker-container-ip/">Docker Container IP</a>
     </h1>
   
 
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://chreem.github.io/2017/03/03/docker-container-ip/" data-id="cizuui5do0000w8l2dmogc7kw" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
+      </header>
       
-        <h1 id="Default-of-Docker-Network"><a href="#Default-of-Docker-Network" class="headerlink" title="Default of Docker Network"></a>Default of Docker Network</h1><p>Usually by <code>apt-get install docker.io</code> (<del>or any other way</del>) to get docker has it own network config: </p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Default-of-Docker-Network"><a href="#Default-of-Docker-Network" class="headerlink" title="Default of Docker Network"></a>Default of Docker Network</h1><p>Usually by <code>apt-get install docker.io</code> (<del>or any other way</del>) to get docker has it own network config: </p>
 <blockquote>
 <p>docker0,172.17.0.0/16</p>
 </blockquote>
-<p>Just like my Linux is a router &amp; docker bridge is a switch:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">                +———————————+               +————+</div><div class="line">        1.1.1.1 |R          |               | SW |       +—container1—+ </div><div class="line">public network interface    |               |  +----------172.17.0.11 | </div><div class="line">                |           |172.17.0.1     |  | |       +————————————+ </div><div class="line">                |         docker0--------------+ |                      </div><div class="line">                |           |               |  | |       +—container2—+ </div><div class="line">                +———————————+               |  +----------172.17.0.12 | </div><div class="line">                                            |    |       +————————————+</div><div class="line">                                            +————+</div></pre></td></tr></table></figure></p>
-<p>So I meet the first pit.<br>After I <a href="https://www.baidu.com" target="_blank" rel="external">baidu.com</a>, should use <code>--ip X.X.X.X</code> assign container’s IP, and I do that.The result is I ALWAYS young.Shell told me only user-defined network could assign IP.Because of static IP so that I can use Nginx High performence server &amp; reverse proxy at the same time &amp; convenience.</p>
-<h1 id="Container-IP"><a href="#Container-IP" class="headerlink" title="Container IP"></a>Container IP</h1><ol>
-<li>Create Network<br>According to baidu, docker has 4 modes network (<del>with my dingding thing</del>), but who let me like to use bridge mode more than physical mode.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker network --subnet=192.168.100.0/24 SubnetName</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>then you can see a new bridge interface in config by using <code>$ ifconfig</code></p>
-<ol>
-<li><p>Run container<br>The command of run container also should bring <code>--network SubnetName</code>, so that you can choose the network that you create</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -d -v /physical/site:/container/site --network SubnetName --ip X.X.X.X chreem/nginx</div></pre></td></tr></table></figure>
-</li>
-<li><p>Check Running Container IP<br><code>inspect</code> is used to check the detail of container or other, the ip is included in this:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ docker inspect ContainerID</div><div class="line">&gt; [</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        &quot;NetworkSettings&quot;:&#123;</div><div class="line">            ...</div><div class="line">            &quot;IPAddress&quot;:&quot;172.17.0.2&quot;,</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>And it also has <code>--format</code> param, <code>{.NetworkSettings.IPAddress}</code><br><strong>(Because of nunjucks’ in hexo double brace syntax, I just use one instead)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker inspect -f &apos;&#123;.NetworkSettings.IPAddress&#125;&apos; ContainerID</div><div class="line">&gt; 172.17.0.2</div></pre></td></tr></table></figure></p>
-<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>Get more help from <a href="https://docs.docker.com/engine/userguide/networking/" target="_blank" rel="external">Docker Network Configuration Documentation</a><br><del>And why I use English. 再用鹦语剁手</del></p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
       
-    </div><!-- .entry-content -->
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+    </div>
 
-    <footer class="entry-meta">
-    <a href="/2017/03/03/docker-container-ip/">
-    <time datetime="2017-03-03T01:14:23.000Z" class="entry-date">
-        2017-03-03
-    </time>
-</a>
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/03/docker-container-ip/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-
-    </footer>
+  </div>
+  
 </article>
 
 
@@ -176,66 +291,62 @@
 
 
 
-  
-    <article id="post-how-this-work" class="post-how-this-work post type-post status-publish format-standard hentry">
-    <!---->
 
-      <header class="entry-header">
-        
+
+
+  
+    <article id="post-README" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/03/README/" class="article-date">
+      <time datetime="2017-03-03T01:14:23.000Z" itemprop="datePublished">2017-03-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/03/03/how-this-work/">How this work</a>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/03/README/">How this work</a>
     </h1>
   
 
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://chreem.github.io/2017/03/03/how-this-work/" data-id="cizuui5dz0003w8l2hwlntlq4" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
+      </header>
       
-        <h1 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h1><p>About a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.<br>So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥, but also 100M :P.Just need to pay attention to the exchange rate.</p>
-<h1 id="How-this-work"><a href="#How-this-work" class="headerlink" title="How this work"></a>How this work</h1><p>Before my QCloud expired, the domain of mine chreem.xyz would not binding on ConoHa, I use the Nginx on my tencent vm pretending to be redirected to reverse proxy to Japan.&amp; my building blog will need to work at the same time WITH HTTPS…So that I have to write a strange configuation.<br>Hexo site is deployed on my ConoHa vps.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">The entire site looks like this:</div><div class="line">(omit the response&amp;HTTPS SSL etc.)</div><div class="line">                            +———————————QCloud——————————+       +———————————ConoHa——————————+</div><div class="line">  http://hexo.chreem.xyz    |                           |       |                           |</div><div class="line">---------------------------&gt;|--&gt;:80&#123; upstream ConoHa &#125;  |------&gt;|--&gt;:80&#123; (same as QCloud    |</div><div class="line">                            |                           |       |         443 upstream)     |</div><div class="line">    http://chreem.xyz       |                           |       |      &#125;                    |</div><div class="line">---------------------------&gt;|--&gt;:80&#123; rewrite to :443&#125;   |       |                           |</div><div class="line">    https://chreem.xyz      |                           |       +———————————————————————————+</div><div class="line">---------------------------&gt;|--&gt;:443&#123; upstream docker&#125;  |</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container1-+|</div><div class="line">                            |          ├-&gt;|--&gt;:8000    ||</div><div class="line">                            |          |  +————————————+|</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container2-+|</div><div class="line">                            |          ├-&gt;|--&gt;:8000    ||</div><div class="line">                            |          |  +————————————+|</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container3-+|</div><div class="line">                            |          └-&gt;|--&gt;:8000    ||</div><div class="line">                            |             +————————————+|</div><div class="line">                            +———————————————————————————+</div></pre></td></tr></table></figure></p>
-<h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><p>Except my own site, I deploy on github also, and have two branch for site&amp;post.</p>
-<ul>
-<li><p><a href="https://github.com/Chreem/chreem.github.io" target="_blank" rel="external">branch master</a><br>  hexo deploy branch, used ot show on the <a href="https://chreem.github.io">home page</a>.<br>  Install deployer in hexo init directory at first if you use high version hexo.</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ npm install --save hexo-deployer-git</div><div class="line">$ vi _config.yml</div><div class="line">Shift + G</div><div class="line">&gt; ...</div><div class="line">  deploy:</div><div class="line">    type: git</div><div class="line">    repo: git@github.com:Chreem/chreem.github.io.git</div><div class="line">    branch: master</div></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://github.com/Chreem/chreem.github.io/tree/blogs" target="_blank" rel="external">branch blogs</a><br>  posts, all my blogs.<br>  ConoHa:Make sure your rsa key in <code>~/.ssh/</code></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ cd blog/source/_posts</div><div class="line">~/blog/source/_ports$ git init</div><div class="line">~/blog/source/_ports$ git remote add origin git@github.com:Chreem/chreem.github.io.git</div><div class="line">~/blog/source/_ports$ git add * </div><div class="line">~/blog/source/_ports$ git commit -m &quot;hexo blog init&quot;</div><div class="line">~/blog/source/_ports$ git push origin master:blogs</div></pre></td></tr></table></figure>
-<p>  my compute(windows): so as linux, in <code>C:\Users\yourname\.ssh\</code>. And installed <a href="https://code.visualstudio.com/" target="_blank" rel="external">Visual Studio Code</a></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">~\&gt; code</div><div class="line">Ctrl + `</div><div class="line">PS ~\&gt; git init</div><div class="line">PS ~\&gt; git remote add origin git@github.com:Chreem/chreem.github.io.git</div><div class="line">PS ~\&gt; git pull origin blogs:master</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="Trouble"><a href="#Trouble" class="headerlink" title="Trouble"></a>Trouble</h1><ol>
-<li><code># Service nginx start</code><br>When I run this command &amp; failed:<br><code>&gt; Job for nginx.service failed because the control process exited with error code. See &quot;systemctl status nginx.service&quot; and &quot;journalctl -xe&quot; for details.</code><br>I don’t remember where I copied this nginx config. Although it has a user named nginx, not mentioned at all…Before I deleted this line, I modified worker_processes, run <code>systemctl status nginx.service</code> as Shell told, delete reverse server etc..Anyway I had thought.Finally I delete all nginx.conf in a fit of anger, started it over without user line.<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">user nginx;</div><div class="line">worker_processes auto;</div><div class="line">events&#123;</div><div class="line">    ...</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>In fact, high version nginx first line is configed <code>user www-data</code>, and I don’t have any reason to change it <strong>temporary</strong>.</p>
-<ol>
-<li>Template render error: (unknown path)<br>At first I toss about my hexo config for a long time, so was github.<br>Finally I found in <a href="https://github.com/hexojs/hexo/issues/2384" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/2384</a><br>Because of my post appeared nunjucks double brace syntax. Fix it, that will do.<br><del>So how could I type {{}}?!!!</del></li>
-</ol>
-<h1 id="Used-amp-Thank-for"><a href="#Used-amp-Thank-for" class="headerlink" title="Used&amp;Thank for"></a>Used&amp;Thank for</h1><p>Blog:       <a href="https://hexo.io" target="_blank" rel="external">hexo</a><br>Blog-Theme: <a href="https://github.com/wizardforcel/hexo-theme-cyanstyle" target="_blank" rel="external">cyanstyle</a></p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h1><p><a href="https://chreem.github.io"><img src="https://img.shields.io/badge/Chreem--Hexo-harf-yellow.svg" alt="完成度"></a><br>About a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.<br>So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥, but also 100M :P.Just need to pay attention to the exchange rate.<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
 
       
-    </div><!-- .entry-content -->
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+    </div>
 
-    <footer class="entry-meta">
-    <a href="/2017/03/03/how-this-work/">
-    <time datetime="2017-03-03T01:14:23.000Z" class="entry-date">
-        2017-03-03
-    </time>
-</a>
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/03/README/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
     
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-
-    </footer>
+  </div>
+  
 </article>
 
 
@@ -243,85 +354,105 @@
 
 
 
-  
-  
 
-</div></div>
-        <div id="secondary" class="widget-area" role="complementary">
-  
-    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
-    <div>
-        <input type="text" value="" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="搜索" />
-    </div>
-</form></aside>
-  
-    
-  
-    
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget-content">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/04/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/03/docker-container-ip/">Docker Container IP</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/03/how-this-work/">How this work</a>
-          </li>
-        
-      </ul>
-    </div>
-  </aside>
+
 
   
-    
-  <aside class="widget">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget-content">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </aside>
-
-  
-    
-  <aside class="widget">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget-content tagcloud">
-      <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a>
-    </div>
-  </aside>
-
   
 </div>
-      </div>
-      <footer id="colophon" role="contentinfo">
-    <p>&copy; 2017 Chreem
-    All rights reserved.</p>
-    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Chreem
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
 </footer>
-    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
-<script src="/js/jquery-2.0.3.min.js"></script>
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js"></script>
 
-<script src="/js/navigation.js"></script>
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
 
-<div id="bg"></div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
 
   </div>
 </body>
