@@ -4,6 +4,12 @@
   <meta charset="utf-8">
   
   
+  <meta name="description" content="Default of Docker NetworkUsually by apt-get install docker.io (or any other way) to get docker has it own network config: 
+
+docker0,172.17.0.0/16
+
+Jus" />
+  
 
   
   
@@ -11,14 +17,30 @@
   
   
   
-  <title>Chreem&#39;s Blog</title>
+  <title>Docker Container IP | Chreem&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Chreem's Blog">
-<meta property="og:url" content="https://chreem.github.io/index.html">
+  <meta name="description" content="Default of Docker NetworkUsually by apt-get install docker.io (or any other way) to get docker has it own network config: 
+
+docker0,172.17.0.0/16
+
+Just like my Linux is a router &amp;amp; docker bridge is">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker Container IP">
+<meta property="og:url" content="https://chreem.github.io/2017/03/03/docker-container-ip/index.html">
 <meta property="og:site_name" content="Chreem's Blog">
+<meta property="og:description" content="Default of Docker NetworkUsually by apt-get install docker.io (or any other way) to get docker has it own network config: 
+
+docker0,172.17.0.0/16
+
+Just like my Linux is a router &amp;amp; docker bridge is">
+<meta property="og:updated_time" content="2017-03-04T05:56:04.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chreem's Blog">
+<meta name="twitter:title" content="Docker Container IP">
+<meta name="twitter:description" content="Default of Docker NetworkUsually by apt-get install docker.io (or any other way) to get docker has it own network config: 
+
+docker0,172.17.0.0/16
+
+Just like my Linux is a router &amp;amp; docker bridge is">
   
   
     <link rel="icon" href="/css/images/favicon.ico">
@@ -58,117 +80,15 @@
     </nav>
 </header>
       <div id="main" class="wrapper">
-        <div id="primary" class="site-content"><div id="content" role="main">
-  
-    <article id="post-hello-world" class="post-hello-world post type-post status-publish format-standard hentry">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-docker-container-ip" class="post-docker-container-ip post type-post status-publish format-standard hentry">
     <!---->
 
       <header class="entry-header">
         
         
   
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/03/04/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://chreem.github.io/2017/03/04/hello-world/" data-id="cizusqahw000044l20ih908wr" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/03/04/hello-world/">
-    <time datetime="2017-03-04T05:28:46.698Z" class="entry-date">
-        2017-03-04
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-how-this-work" class="post-how-this-work post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/03/03/how-this-work/">How this work</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="https://chreem.github.io/2017/03/03/how-this-work/" data-id="cizut6nr300018pl2n04gzlcu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <h1 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h1><p>About a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.<br>So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥, but also 100M :P.Just need to pay attention to the exchange rate.</p>
-<h1 id="How-this-work"><a href="#How-this-work" class="headerlink" title="How this work"></a>How this work</h1><p>Before my QCloud expired, the domain of mine chreem.xyz would not binding on ConoHa, I use the Nginx on my tencent vm pretending to be redirected to reverse proxy to Japan.&amp; my building blog will need to work at the same time WITH HTTPS…So that I have to write a strange configuation.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">The entire site looks like this:</div><div class="line">(omit the response&amp;HTTPS SSL etc.)</div><div class="line">                            +———————————QCloud——————————+       +———————————ConoHa——————————+</div><div class="line">  http://hexo.chreem.xyz    |                           |       |                           |</div><div class="line">---------------------------&gt;|--&gt;:80&#123; upstream ConoHa &#125;  |------&gt;|--&gt;:80&#123; (same as QCloud    |</div><div class="line">                            |                           |       |         443 upstream)     |</div><div class="line">    http://chreem.xyz       |                           |       |      &#125;                    |</div><div class="line">---------------------------&gt;|--&gt;:80&#123; rewrite to :443&#125;   |       |                           |</div><div class="line">    https://chreem.xyz      |                           |       +———————————————————————————+</div><div class="line">---------------------------&gt;|--&gt;:443&#123; upstream docker&#125;  |</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container1-+|</div><div class="line">                            |          ├-&gt;|--&gt;:8000    ||</div><div class="line">                            |          |  +————————————+|</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container2-+|</div><div class="line">                            |          ├-&gt;|--&gt;:8000    ||</div><div class="line">                            |          |  +————————————+|</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container3-+|</div><div class="line">                            |          └-&gt;|--&gt;:8000    ||</div><div class="line">                            |             +————————————+|</div><div class="line">                            +———————————————————————————+</div></pre></td></tr></table></figure>
-<h1 id="Used-amp-Thank-for"><a href="#Used-amp-Thank-for" class="headerlink" title="Used&amp;Thank for"></a>Used&amp;Thank for</h1><p>Blog:       <a href="https://hexo.io" target="_blank" rel="external">hexo</a><br>Blog-Theme: <a href="">cyanstyle</a><br>Docker,Nginx etc.</p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/03/03/how-this-work/">
-    <time datetime="2017-03-03T01:14:23.000Z" class="entry-date">
-        2017-03-03
-    </time>
-</a>
-    
-    
-  <span class="article-delim">&#8226;</span>
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-vps/">nginx,vps</a></li></ul>
-
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-docker-container-ip" class="post-docker-container-ip post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/03/03/docker-container-ip/">Docker Container IP</a>
+    <h1 class="entry-title article-title">
+      Docker Container IP
     </h1>
   
 
@@ -221,12 +141,20 @@
 </article>
 
 
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/03/03/how-this-work/" rel="prev"><span class="meta-nav">←</span> How this work</a></span>
+    
+    
+</nav><!-- .nav-single -->
 
 
 
 
-  
-  
+
+
 
 </div></div>
         <div id="secondary" class="widget-area" role="complementary">

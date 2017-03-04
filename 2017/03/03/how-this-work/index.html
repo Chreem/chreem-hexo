@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="BeforeAbout a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.So I’m ready to migrate my site " />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>How this work | Chreem&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="BeforeAbout a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How this work">
+<meta property="og:url" content="https://chreem.github.io/2017/03/03/how-this-work/index.html">
+<meta property="og:site_name" content="Chreem's Blog">
+<meta property="og:description" content="BeforeAbout a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥,">
+<meta property="og:updated_time" content="2017-03-04T05:28:46.698Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How this work">
+<meta name="twitter:description" content="BeforeAbout a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥,">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="Chreem&#39;s Blog" rel="home">Chreem&#39;s Blog</a>
+      </h1>
+      
+        <script type="text/javascript" src="http://api.hitokoto.us/rand?encode=js&charset=utf-8"></script>
+        <h2 class="site-description"><script>hitokoto();</script></h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-how-this-work" class="post-how-this-work post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      How this work
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="https://chreem.github.io/2017/03/03/how-this-work/" data-id="cizut6nr300018pl2n04gzlcu" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <h1 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h1><p>About a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.<br>So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥, but also 100M :P.Just need to pay attention to the exchange rate.</p>
+<h1 id="How-this-work"><a href="#How-this-work" class="headerlink" title="How this work"></a>How this work</h1><p>Before my QCloud expired, the domain of mine chreem.xyz would not binding on ConoHa, I use the Nginx on my tencent vm pretending to be redirected to reverse proxy to Japan.&amp; my building blog will need to work at the same time WITH HTTPS…So that I have to write a strange configuation.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">The entire site looks like this:</div><div class="line">(omit the response&amp;HTTPS SSL etc.)</div><div class="line">                            +———————————QCloud——————————+       +———————————ConoHa——————————+</div><div class="line">  http://hexo.chreem.xyz    |                           |       |                           |</div><div class="line">---------------------------&gt;|--&gt;:80&#123; upstream ConoHa &#125;  |------&gt;|--&gt;:80&#123; (same as QCloud    |</div><div class="line">                            |                           |       |         443 upstream)     |</div><div class="line">    http://chreem.xyz       |                           |       |      &#125;                    |</div><div class="line">---------------------------&gt;|--&gt;:80&#123; rewrite to :443&#125;   |       |                           |</div><div class="line">    https://chreem.xyz      |                           |       +———————————————————————————+</div><div class="line">---------------------------&gt;|--&gt;:443&#123; upstream docker&#125;  |</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container1-+|</div><div class="line">                            |          ├-&gt;|--&gt;:8000    ||</div><div class="line">                            |          |  +————————————+|</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container2-+|</div><div class="line">                            |          ├-&gt;|--&gt;:8000    ||</div><div class="line">                            |          |  +————————————+|</div><div class="line">                            |          |                |</div><div class="line">                            |          |  +-container3-+|</div><div class="line">                            |          └-&gt;|--&gt;:8000    ||</div><div class="line">                            |             +————————————+|</div><div class="line">                            +———————————————————————————+</div></pre></td></tr></table></figure>
+<h1 id="Used-amp-Thank-for"><a href="#Used-amp-Thank-for" class="headerlink" title="Used&amp;Thank for"></a>Used&amp;Thank for</h1><p>Blog:       <a href="https://hexo.io" target="_blank" rel="external">hexo</a><br>Blog-Theme: <a href="">cyanstyle</a><br>Docker,Nginx etc.</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2017/03/03/how-this-work/">
+    <time datetime="2017-03-03T01:14:23.000Z" class="entry-date">
+        2017-03-03
+    </time>
+</a>
+    
+    
+  <span class="article-delim">&#8226;</span>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-vps/">nginx,vps</a></li></ul>
+
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+        <span class="nav-previous"><a href="/2017/03/04/hello-world/" rel="prev"><span class="meta-nav">←</span> Hello World</a></span>
+    
+    
+        <span class="nav-next"><a href="/2017/03/03/docker-container-ip/" rel="next">Docker Container IP <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/04/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/03/how-this-work/">How this work</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/03/docker-container-ip/">Docker Container IP</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-content">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-vps/">nginx,vps</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </aside>
+
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-content tagcloud">
+      <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/nginx-vps/" style="font-size: 10px;">nginx,vps</a>
+    </div>
+  </aside>
+
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2017 Chreem
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
