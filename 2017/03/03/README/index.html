@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Chreem's Blog">
 <meta property="og:description" content="BeforeAbout a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥,">
 <meta property="og:image" content="https://img.shields.io/badge/Chreem--Hexo-harf-yellow.svg">
-<meta property="og:updated_time" content="2017-03-04T13:56:30.610Z">
+<meta property="og:updated_time" content="2017-03-04T14:31:42.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How this work">
 <meta name="twitter:description" content="BeforeAbout a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.So I’m ready to migrate my site to ConoHa.Not only lower then QCloud average 10￥,">
@@ -281,7 +281,7 @@
 <p> So that timing task is auto-running, you can check this tack by <code>crontab -l</code>.<br> Visit more about <a href="https://www.baidu.com/s?wd=crontab" target="_blank" rel="external">crontab</a> command.</p>
 </li>
 <li><p>This task need to run a shell to ensure we can change update commands rather than <code>crontab -r</code> &amp; <code>crontab timing.cron</code> every times<br> <strong>The following complete directory is omitted:</strong></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ vi update.sh</div><div class="line">&lt; #!/bin/bash</div><div class="line">&lt; cd .../_ports/</div><div class="line">&lt; git pull -f origin blogs:master</div><div class="line">&lt; cd .../hexo-blog/</div><div class="line">&lt; hexo d -g</div><div class="line"></div><div class="line">vi timing.cron</div><div class="line">&lt; 0 0 * * * exec ..../update.sh</div><div class="line"></div><div class="line"># Don&apos;t for get the permission of update.sh</div><div class="line">$ chmod 755 update.sh</div><div class="line"></div><div class="line">crontab timing.cron</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ vi update.sh</div><div class="line">&lt; #!/bin/bash</div><div class="line">&lt; cd .../_ports/</div><div class="line">&lt; git pull -f origin blogs:master</div><div class="line">&lt; cd .../hexo-blog/</div><div class="line">&lt; hexo d -g</div><div class="line"></div><div class="line">vi timing.cron</div><div class="line">&lt; 0 0 * * * exec ..../update.sh</div><div class="line"></div><div class="line"># Don&apos;t for get the permission of update.sh</div><div class="line">$ chmod 755 update.sh</div><div class="line"></div><div class="line">$ crontab timing.cron</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>In short, I can not update too frequently, energy is used to write articles rather than update site.<br><del>I’m lazy anyway</del>.</p>
@@ -289,7 +289,7 @@
 <p>In fact, high version nginx first line is configed <code>user www-data</code>, and I don’t have any reason to change it <strong>temporary</strong>.</p>
 <h2 id="Template-render-error-unknown-path"><a href="#Template-render-error-unknown-path" class="headerlink" title="Template render error: (unknown path)"></a>Template render error: (unknown path)</h2><p>At first I toss about my hexo config for a long time, so was github.<br>Finally I found in <a href="https://github.com/hexojs/hexo/issues/2384" target="_blank" rel="external">https://github.com/hexojs/hexo/issues/2384</a><br>Because of my post appeared nunjucks double brace syntax. Fix it, that will do.<br><del>So how could I type {{}}?!!!</del></p>
 <h2 id="The-display-page-shows-the-whole-article"><a href="#The-display-page-shows-the-whole-article" class="headerlink" title="The display page shows the whole article"></a>The display page shows the whole article</h2><p>Just need a <code>&lt;!-- more --&gt;</code> label like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; 文章简介</div><div class="line">&gt; &lt;!-- more --&gt;</div><div class="line">&gt; 正文</div></pre></td></tr></table></figure></p>
-<h1 id="Used-amp-Thank-for"><a href="#Used-amp-Thank-for" class="headerlink" title="Used&amp;Thank for"></a>Used&amp;Thank for</h1><p>Blog:       <a href="https://hexo.io" target="_blank" rel="external">hexo</a><br>Blog-Theme: <a href="https://github.com/wizardforcel/hexo-theme-cyanstyle" target="_blank" rel="external">cyanstyle</a><br>　　　　　　<a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="external">Viosey’s material</a><br>　　　　　　<a href="https://github.com/luuman/hexo-theme-spfk" target="_blank" rel="external">spfk</a>  </p>
+<h1 id="Used-amp-Thank-for"><a href="#Used-amp-Thank-for" class="headerlink" title="Used&amp;Thank for"></a>Used&amp;Thank for</h1><p>Blog:       <a href="https://hexo.io" target="_blank" rel="external">hexo</a><br>Blog-Theme:<a href="https://github.com/wizardforcel/hexo-theme-cyanstyle" target="_blank" rel="external">cyanstyle</a><br>　　　　　　<a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="external">Viosey’s material</a><br>　　　　　　<a href="https://github.com/luuman/hexo-theme-spfk" target="_blank" rel="external">spfk</a>  </p>
 
       
       
@@ -347,7 +347,7 @@
         <p><span>本文标题:</span><a href="/2017/03/03/README/">How this work</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Chreem 的个人博客">Chreem</a></p>
         <p><span>发布时间:</span>2017年03月03日 - 09时14分</p>
-        <p><span>最后更新:</span>2017年03月04日 - 22时56分</p>
+        <p><span>最后更新:</span>2017年03月04日 - 23时31分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/03/README/" title="How this work">https://chreem.github.io/2017/03/03/README/</a>
             <span class="copy-path" data-clipboard-text="原文: https://chreem.github.io/2017/03/03/README/　　作者: Chreem" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
