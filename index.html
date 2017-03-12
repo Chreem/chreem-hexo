@@ -141,7 +141,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/tips/" style="font-size: 10px;">tips</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
                     </div>
                 </section>
                 
@@ -217,6 +217,405 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-site/trouble" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/12/site/trouble/" class="article-date">
+      <time datetime="2017-03-12T01:30:02.000Z" itemprop="datePublished">2017-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/12/site/trouble/">trouble in my building site</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="troubling"><a href="#troubling" class="headerlink" title="troubling"></a>troubling</h1><h1 id="troubled"><a href="#troubled" class="headerlink" title="troubled"></a>troubled</h1><h2 id="vue-runtime-only"><a href="#vue-runtime-only" class="headerlink" title="vue runtime-only"></a>vue runtime-only</h2><ul>
+<li><p>Recurrence<br>  控制台虚区：<code>index.bundle.js:1876 [Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build. (found in &lt;Root&gt;)</code></p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ./router.js</span></div><div class="line"><span class="comment">// ...(omit import&amp;vue.use)</span></div><div class="line"><span class="keyword">const</span> indexPage = <span class="built_in">require</span>(<span class="string">'./index/'</span>);</div><div class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</div><div class="line">    <span class="attr">routes</span>: [</div><div class="line">        &#123;<span class="attr">path</span>: <span class="string">"/index"</span>, <span class="attr">alias</span>: <span class="string">"/"</span>, <span class="attr">component</span>: indexPage&#125;</div><div class="line">    ]</div><div class="line">&#125;);</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> router;</div><div class="line"></div><div class="line"><span class="comment">// ./index/index.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"index"</span>,</div><div class="line">    <span class="attr">template</span>: <span class="built_in">require</span>(<span class="string">'./index.html'</span>),</div><div class="line">    <span class="attr">style</span>: <span class="built_in">require</span>(<span class="string">'./index.css'</span>),</div><div class="line">    data()&#123;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">test</span>: <span class="string">"qweasd"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>Reason<br>  <code>import Vue from &#39;vue&#39;</code>默认打包/node_modules/vue/dist/vue.runtime.common.js，即runtime-only不带模板编译器，而目录结构中index.js使用了<code>template</code>属性，</p>
+<p>  From <a href="https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only" target="_blank" rel="external">Vuejs.org</a></p>
+<blockquote>
+<p>Runtime + Compiler vs. Runtime-only<br>  If you need to compile templates on the fly (e.g. passing a string to the template option, or mounting to an element using its in-DOM HTML as the template), you will need the compiler and thus the full build:</p>
+</blockquote>
+</li>
+<li><p>solve<br>  there’s two ways to solve this problem:</p>
+<ol>
+<li><p>页面内容不多，可将index.js,index.html,index.css直接塞进index.vue中，用vue-loader解析<br> 继续使用runtime-only mode：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ./router.js</span></div><div class="line">...</div><div class="line">const indexPage = <span class="built_in">require</span>(<span class="string">'./index/index.vue'</span>);</div><div class="line">...</div><div class="line"></div><div class="line"><span class="comment">// ./index/index.vue</span></div><div class="line">... (normal vue file)</div></pre></td></tr></table></figure>
+</li>
+<li><p>runtime + compiler<br> 修改webpack配置，<code>import</code>默认引入改为vue.js而非vue.runtime.js</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// webpack.config.js</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    resolve: &#123;</div><div class="line">        <span class="attr">alias</span>: &#123;</div><div class="line">        <span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span> <span class="comment">// 'vue/dist/vue.common.js' for webpack 1</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="webpack-rules-amp-loaders"><a href="#webpack-rules-amp-loaders" class="headerlink" title="webpack rules &amp; loaders"></a>webpack rules &amp; loaders</h2><p>So simple changed:<br>webpack 2.0+将loaders替换为rules，但loaders依然提供部分支持</p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/trouble/">trouble</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tools/build/npm" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/11/tools/build/npm/" class="article-date">
+      <time datetime="2017-03-11T01:55:19.000Z" itemprop="datePublished">2017-03-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/tools/build/npm/">npm</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
+<li>npm self<br>  So easy:  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g npm@...</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tools/RegularExpression" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/11/tools/RegularExpression/" class="article-date">
+      <time datetime="2017-03-10T15:39:19.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/tools/RegularExpression/">RegularExpression</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tools/markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/11/tools/markdown/" class="article-date">
+      <time datetime="2017-03-10T15:38:18.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/tools/markdown/">markdown</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html/css/css-flex" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/09/html/css/css-flex/" class="article-date">
+      <time datetime="2017-03-09T04:57:31.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/html/css/css-flex/">css-flex</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><p>* </p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-site/README" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/site/README/" class="article-date">
+      <time datetime="2017-03-08T02:02:29.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/site/README/">base</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a>
+    </div>
+
+
+      
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/08/site/README/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-html/vue/accumulation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -244,7 +643,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>It’s accumulation for vue.<br><a href="https://vuejs.org/"><img src="https://img.shields.io/npm/v/vue.svg" alt="Vue version"></a><br>Rather than accumulation, problems summary is more likely.<br>
+              <p>It’s accumulation for vue.<br><a href="https://vuejs.org/"><img src="https://img.shields.io/npm/v/vue.svg" alt="Vue version"></a><br>Rather than accumulation, problems summary is more likely.<br>All of these are running by <code>npm install</code>, makesure npm&amp;node was installed.<br>
           
       
       
@@ -254,13 +653,13 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/share/">share</a><a class="article-category-link" href="/categories/share/html/">html</a>
+    <a class="article-category-link" href="/categories/js/">js</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tips/">tips</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
     </div>
 
       

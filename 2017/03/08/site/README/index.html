@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Docker Container IP | Chreem&#39;s Blog</title>
+  <title>base | Chreem&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Default of Docker NetworkUsually by apt-get install docker.io (or any other way) to get docker has it’s own network config: 
-
-docker0,172.17.0.0/16">
+  <meta name="description" content="After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker Container IP">
-<meta property="og:url" content="https://chreem.github.io/2017/03/03/cloud/docker-container-ip/index.html">
+<meta property="og:title" content="base">
+<meta property="og:url" content="https://chreem.github.io/2017/03/08/site/README/index.html">
 <meta property="og:site_name" content="Chreem's Blog">
-<meta property="og:description" content="Default of Docker NetworkUsually by apt-get install docker.io (or any other way) to get docker has it’s own network config: 
-
-docker0,172.17.0.0/16">
-<meta property="og:updated_time" content="2017-03-07T15:00:07.342Z">
+<meta property="og:description" content="After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.">
+<meta property="og:updated_time" content="2017-03-10T15:00:08.334Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker Container IP">
-<meta name="twitter:description" content="Default of Docker NetworkUsually by apt-get install docker.io (or any other way) to get docker has it’s own network config: 
-
-docker0,172.17.0.0/16">
+<meta name="twitter:title" content="base">
+<meta name="twitter:description" content="After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.">
   
     <link rel="alternative" href="/atom.xml" title="Chreem&#39;s Blog" type="application/atom+xml">
   
@@ -222,11 +216,11 @@ docker0,172.17.0.0/16">
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-cloud/docker-container-ip" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-site/README" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/03/cloud/docker-container-ip/" class="article-date">
-      <time datetime="2017-03-03T01:14:23.000Z" itemprop="datePublished">2017-03-03</time>
+      <a href="/2017/03/08/site/README/" class="article-date">
+      <time datetime="2017-03-08T02:02:29.000Z" itemprop="datePublished">2017-03-08</time>
 </a>
     </div>
   
@@ -239,7 +233,7 @@ docker0,172.17.0.0/16">
         
   
     <h1 class="article-title" itemprop="name">
-      Docker Container IP
+      base
     </h1>
   
 
@@ -248,15 +242,11 @@ docker0,172.17.0.0/16">
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/cloud/">cloud</a>
+    <a class="article-category-link" href="/categories/site/">site</a>
     </div>
 
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -264,19 +254,20 @@ docker0,172.17.0.0/16">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Default-of-Docker-Network"><a href="#Default-of-Docker-Network" class="headerlink" title="Default of Docker Network"></a>Default of Docker Network</h1><p>Usually by <code>apt-get install docker.io</code> (<del>or any other way</del>) to get docker has it’s own network config: </p>
-<blockquote>
-<p>docker0,172.17.0.0/16</p>
-</blockquote>
-<a id="more"></a>
-<p>Just like my Linux is a router &amp; docker bridge is a switch:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">                +———————————+               +————+</div><div class="line">        1.1.1.1 |R          |               | SW |       +—container1—+ </div><div class="line">public network interface    |               |  +----------172.17.0.11 | </div><div class="line">                |           |172.17.0.1     |  | |       +————————————+ </div><div class="line">                |         docker0--------------+ |                      </div><div class="line">                |           |               |  | |       +—container2—+ </div><div class="line">                +———————————+               |  +----------172.17.0.12 | </div><div class="line">                                            |    |       +————————————+</div><div class="line">                                            +————+</div></pre></td></tr></table></figure></p>
-<p>So I meet the first pit.<br>After I <a href="https://www.baidu.com" target="_blank" rel="external">baidu.com</a>, should use <code>--ip X.X.X.X</code> assign container’s IP, and I do that.The result is I ALWAYS young.Shell told me only user-defined network could assign IP.Because of static IP so that I can use Nginx High performence server &amp; reverse proxy at the same time &amp; convenience.</p>
-<h1 id="Container-IP"><a href="#Container-IP" class="headerlink" title="Container IP"></a>Container IP</h1><h2 id="Create-Network"><a href="#Create-Network" class="headerlink" title="Create Network"></a>Create Network</h2><p>According to baidu, docker has 4 modes network (<del>with my dingding thing</del>), but who let me like to use bridge mode more than physical mode.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker network --subnet=192.168.100.0/24 SubnetName</div></pre></td></tr></table></figure></p>
-<p>then you can see a new bridge interface in config by using <code>$ ifconfig</code></p>
-<h2 id="Run-container"><a href="#Run-container" class="headerlink" title="Run container"></a>Run container</h2><p>The command of run container also should bring <code>--network SubnetName</code>, so that you can choose the network that you create<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker run -d -v /physical/site:/container/site --network SubnetName --ip X.X.X.X chreem/nginx</div></pre></td></tr></table></figure></p>
-<h2 id="Check-Running-Container-IP"><a href="#Check-Running-Container-IP" class="headerlink" title="Check Running Container IP"></a>Check Running Container IP</h2><p><code>inspect</code> is used to check the detail of container or other, the ip is included in this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ docker inspect ContainerID</div><div class="line">&gt; [</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        &quot;NetworkSettings&quot;:&#123;</div><div class="line">            ...</div><div class="line">            &quot;IPAddress&quot;:&quot;172.17.0.2&quot;,</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
-<p>And it also has <code>--format</code> param, <code>{.NetworkSettings.IPAddress}</code><br><em>(Because of nunjucks’ in hexo double brace syntax, I just use one instead)</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker inspect -f &apos;&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;&apos; ContainerID</div><div class="line">&gt; 172.17.0.2</div></pre></td></tr></table></figure></p>
-<h1 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h1><p>Get more help from <a href="https://docs.docker.com/engine/userguide/networking/" target="_blank" rel="external">Docker Network Configuration Documentation</a><br><del>And why I use English. 再用鹦语剁手</del></p>
+        <p>After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.<br><a id="more"></a></p>
+<h1 id="Traditional-or-SPA"><a href="#Traditional-or-SPA" class="headerlink" title="Traditional or SPA?"></a>Traditional or SPA?</h1><p>According to baidu.com, SPA need to take care of SEO. <del>But what’s SEO? With my dingding thing? I just write this to find a job.</del><br>I’ve tried to build these versions of project <code>info</code> (<del>don’t care about the name</del>):  </p>
+<ul>
+<li><p>V1.x (16)<br>  Blind to write. Even not used vue’s component, just tried to be familiar with vue syntax. It still has jQuery,Bootstrap(material-design-bootstrap). And at that time, Vue just as version 1.x<br>  <del>What the build tools is? Webpack? Could I eat it?</del></p>
+</li>
+<li><p>V2.x (16)<br>  Updated vue version to v2, and something happen to vue2 &amp; jQuery: Vue2 has occupied <code>$</code> symbols, and I could not use then at same time by <code>&lt;link&gt;</code>. Then I started to use npm,node,webpack to build my project. By <code>import jQ from &#39;jquery&#39;</code> to use both of them.<br>  Although I used components, always failed to run webpack-dev-server. I could only run <code>npm run build</code> &amp; <code>start nginx</code> (<del>yes, it’s windows</del>). Every times I had any change would be suffering.  </p>
+</li>
+<li><p>V3.x (16-17)<br>  I decided to reconstruct my web page to correct use webpack, and started to use Vue-Router, without jQ,Bootstrap etc.. and use muse-ui to take the place of them.<br>  In this process, components’ data stream cause I had a lot of <code>props</code> and <code>this.$emit</code> to write. So it was naturally introduced vuex’s state management.<br>  Then I didn’t write in a hurry after the introduction of the Vue-Resource to connect backend on <a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a>, even without transition (<del>Spicy chicken</del> garbage website).</p>
+</li>
+</ul>
+<p>So in version 4, I would still use Vue’s family, and try to put improve css to be the most impornent thing of mine. Of course using webpack is, too.<br><del>Element would be my target to copy</del> I could learn from Element’s UI components.</p>
+<h1 id="What-would-I-use"><a href="#What-would-I-use" class="headerlink" title="What would I use?"></a>What would I use?</h1><p>Of course I use Vue2 <del>bucket</del> family.<br>Might use Element’s UI components first, then write my own.</p>
+<h1 id="Framework"><a href="#Framework" class="headerlink" title="Framework"></a>Framework</h1><h2 id="Where-I-copy"><a href="#Where-I-copy" class="headerlink" title="Where I copy"></a>Where I copy</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tree chreem-blog</div></pre></td></tr></table></figure>
+<h2 id="What-I-change"><a href="#What-I-change" class="headerlink" title="What I change"></a>What I change</h2><p>store<br>resource<br>router</p>
 
       
       
@@ -286,13 +277,13 @@ docker0,172.17.0.0/16">
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/03/03/cloud/docker-container-ip/">Docker Container IP</a></p>
+        <p><span>本文标题:</span><a href="/2017/03/08/site/README/">base</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Chreem 的个人博客">Chreem</a></p>
-        <p><span>发布时间:</span>2017年03月03日 - 09时14分</p>
-        <p><span>最后更新:</span>2017年03月08日 - 00时00分</p>
+        <p><span>发布时间:</span>2017年03月08日 - 10时02分</p>
+        <p><span>最后更新:</span>2017年03月11日 - 00时00分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/03/03/cloud/docker-container-ip/" title="Docker Container IP">https://chreem.github.io/2017/03/03/cloud/docker-container-ip/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://chreem.github.io/2017/03/03/cloud/docker-container-ip/　　作者: Chreem" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/08/site/README/" title="base">https://chreem.github.io/2017/03/08/site/README/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://chreem.github.io/2017/03/08/site/README/　　作者: Chreem" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -305,15 +296,20 @@ docker0,172.17.0.0/16">
 
 <nav id="article-nav">
   
-    <a href="/2017/03/03/README/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/09/html/css/css-flex/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          How this work
+          css-flex
         
       </div>
     </a>
   
+  
+    <a href="/2017/03/07/html/vue/accumulation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue&#39;s accumulation</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -322,7 +318,7 @@ docker0,172.17.0.0/16">
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Default-of-Docker-Network"><span class="toc-number">1.</span> <span class="toc-text">Default of Docker Network</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Container-IP"><span class="toc-number">2.</span> <span class="toc-text">Container IP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Network"><span class="toc-number">2.1.</span> <span class="toc-text">Create Network</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-container"><span class="toc-number">2.2.</span> <span class="toc-text">Run container</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-Running-Container-IP"><span class="toc-number">2.3.</span> <span class="toc-text">Check Running Container IP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other"><span class="toc-number">3.</span> <span class="toc-text">Other</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Traditional-or-SPA"><span class="toc-number">1.</span> <span class="toc-text">Traditional or SPA?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-would-I-use"><span class="toc-number">2.</span> <span class="toc-text">What would I use?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Framework"><span class="toc-number">3.</span> <span class="toc-text">Framework</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Where-I-copy"><span class="toc-number">3.1.</span> <span class="toc-text">Where I copy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-I-change"><span class="toc-number">3.2.</span> <span class="toc-text">What I change</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -373,13 +369,15 @@ docker0,172.17.0.0/16">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/03/README/" title="上一篇: How this work">
+            <a href="/2017/03/09/html/css/css-flex/" title="上一篇: css-flex">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/03/07/html/vue/accumulation/" title="下一篇: vue&#39;s accumulation">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/site/trouble/">trouble in my building site</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/build/npm/">npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/RegularExpression/">RegularExpression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/html/css/css-flex/">css-flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/site/README/">base</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/html/vue/accumulation/">vue's accumulation</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/tools/git-remote/">Git Remote</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/README/">How this work</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/cloud/docker-container-ip/">Docker Container IP</a></li></ul>
