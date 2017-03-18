@@ -141,7 +141,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
                     </div>
                 </section>
                 
@@ -216,6 +216,217 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-site/MockServer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/18/site/MockServer/" class="article-date">
+      <time datetime="2017-03-17T15:53:18.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/18/site/MockServer/">nodejs mock-server</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>简而言之就是，后端还没写可以先拿这玩意来顶一顶。当然多得是办法能实现，不过图省事就用express了，数据就用*.json保存，假装自己有个mongodb。据说今后很可能经常用，先写好以备不时之需。</p>
+<h1 id="environment"><a href="#environment" class="headerlink" title="environment"></a>environment</h1><h2 id="npm-init"><a href="#npm-init" class="headerlink" title="npm init"></a>npm init</h2><p>这个……没啥可说的</p>
+<h2 id="commander"><a href="#commander" class="headerlink" title="commander"></a><a href="https://www.npmjs.com/package/commander">commander</a></h2><p>node命令行用<br><del>骚年，你大学学过linux的命令行编程么</del><br><del>没有，滚！</del><br>能很方便的配置各类参数以及自动生成帮助文档–help<br>而我确实没啥特殊要求，写个最简单的能关注文件是否变化以及指定端口就完事了</p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a><a class="article-category-link" href="/categories/site/node/">node</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commander/">commander</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/18/site/MockServer/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-site/how-to-deal-data" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/17/site/how-to-deal-data/" class="article-date">
+      <time datetime="2017-03-17T01:42:33.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/17/site/how-to-deal-data/">how to deal data</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>把数据获取和处理单列一项，据说能弱耦合（<del>神特喵弱，都是自己用的</del>），目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">site                            //站点根目录</div><div class="line">├── lib                         //各种数据处理</div><div class="line">│   ├── data-structure          //如名。。。除了提供基本数据结构外还有各种转换</div><div class="line">│   │   └── index.js                //应该是和数据沾边的都会在这</div><div class="line">│   └── service                 //后端数据交互及本地模拟</div><div class="line">│       ├── backend.js                  //*退役       从后端获取</div><div class="line">│       ├── data.test.json              //*退役       本地模拟数据</div><div class="line">│       ├── index.js            //提供请求方法，默认由后端获取</div><div class="line">│       └── test.js                     //*退役       从本地获取</div></pre></td></tr></table></figure></p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data/">data</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/17/site/how-to-deal-data/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html/css/bootstrap-GridSystem" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/15/html/css/bootstrap-GridSystem/" class="article-date">
+      <time datetime="2017-03-14T15:05:26.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/html/css/bootstrap-GridSystem/">bootstrap-GridSystem</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="container的档位"><a href="#container的档位" class="headerlink" title="container的档位"></a>container的档位</h2><p>话不多说上源码……的less版<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">margin-left  </span>: auto; </div><div class="line">    <span class="attribute">margin-right </span>: auto; </div><div class="line">    <span class="attribute">padding-left </span>: <span class="number">15px</span>; </div><div class="line">    <span class="attribute">padding-right</span>: <span class="number">15px</span>;</div><div class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>)  &#123; <span class="attribute">width</span>: <span class="number">750px</span>;  &#125;</div><div class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">992px</span>)  &#123; <span class="attribute">width</span>: <span class="number">970px</span>;  &#125;</div><div class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1200px</span>) &#123; <span class="attribute">width</span>: <span class="number">1170px</span>; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>margin左右分别配置auto不用多说，padding左右是为了防止内容触碰浏览器边界，也为了之后.row和.col嵌套，若想内部元素也有一定的间隔就无需一个个的设置</p>
+</li>
+<li><p>看媒体查询可以发现container的四个档位，分别是指定平板、大屏、超大屏的三个固定值，剩下的就是小屏的不定宽了。</p>
+</li>
+<li><p>指定width比屏幕略窄则是为了防止元素过高出现垂直滚动条时压缩.container导致其出现水平滚动条</p>
+</li>
+</ol>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/15/html/css/bootstrap-GridSystem/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-tools/webstorm-config" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -312,6 +523,7 @@
       
           
               <p>在此之前我只知道bootstrap……然而不知为何最近丝毫不想用这玩意<br><del>这套全家桶并不如Vue来的有快感</del> 在自己有足够水平写组件库之前还是安心拿来主义好了，比如最近就用的饿了么Element UI</p>
+<h1 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h1><h2 id="跳坑爬坑之旅"><a href="#跳坑爬坑之旅" class="headerlink" title="跳坑爬坑之旅"></a>跳坑爬坑之旅</h2><p>还是跳了个坑=，=，之前百度到的这段里<br><code>@media screen and(min-width: 1000px)</code>如果单独放到一个css文件然后从其他地方引入<code>@import &#39;./screen.css&#39;</code>会导致媒体查询部分不能正常工作。小小修改一下即可：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.screen</span> &#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">background-color</span>: white;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (min-width: <span class="number">1000px</span>) &#123; <span class="selector-class">.screen</span> &#123; <span class="attribute">width</span>: <span class="number">50vw</span>; &#125; &#125;</div><div class="line">@<span class="keyword">media</span> (max-width: <span class="number">1000px</span>) &#123; <span class="selector-class">.screen</span> &#123; <span class="attribute">width</span>: <span class="number">40vw</span>; &#125; &#125;</div><div class="line">@<span class="keyword">media</span> (max-width:  <span class="number">700px</span>) &#123; <span class="selector-class">.screen</span> &#123; <span class="attribute">width</span>: <span class="number">20vw</span>; &#125; &#125;</div></pre></td></tr></table></figure></p>
           
       
       
@@ -416,10 +628,10 @@
 
 
   
-    <article id="post-browser/chrome-extension" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tools/browser/chrome-extension" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/12/browser/chrome-extension/" class="article-date">
+      <a href="/2017/03/12/tools/browser/chrome-extension/" class="article-date">
       <time datetime="2017-03-12T07:39:36.000Z" itemprop="datePublished">2017-03-12</time>
 </a>
     </div>
@@ -433,7 +645,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/browser/chrome-extension/">chrome插件推荐</a>
+      <a class="article-title" href="/2017/03/12/tools/browser/chrome-extension/">chrome插件推荐</a>
     </h1>
   
 
@@ -444,6 +656,8 @@
       
           
               <p>参考我chrome一些日常插件整理，多少应该可以提高(zhuang)些(xia)效率(b)。<br>通常都需自备梯子。</p>
+<h1 id="Google翻译"><a href="#Google翻译" class="headerlink" title="Google翻译"></a><strong>Google翻译</strong></h1><p>翻译放第一个……<br>不多说都是泪，安装之后无需梯子也能用<br>毕竟自家的东西，风格与chrome很搭，相比360极速+有道翻译除了天ch.ao速度的天然劣势之外无可挑剔</p>
+<p><a href="https://chrome.google.com/webstore/detail/aapbdbdomjkkjkaonfhkkikfgjllcleb"><img src="https://cloud.githubusercontent.com/assets/12951147/23830063/50b49b06-073c-11e7-9cae-f0f988f12f11.png" alt="image"></a></p>
           
       
       
@@ -453,18 +667,18 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/browser/">browser</a>
+    <a class="article-category-link" href="/categories/tools/">tools</a><a class="article-category-link" href="/categories/tools/browser/">browser</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extension/">extension</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extension/">extension</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/2017/03/12/browser/chrome-extension/#more">大航海 >></a>
+          <a  href="/2017/03/12/tools/browser/chrome-extension/#more">大航海 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -510,7 +724,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>建站过程中遇到的一些待解决及已解决的问题汇总，也是为了自己今后好找（<del>不再犯</del>）</p>
+              <p>建站过程中遇到的一些待解决及已解决的问题汇总，也是为了自己今后好找（<del>不再犯</del>）<br>以及一些积累</p>
           
       
       
@@ -578,9 +792,10 @@
       
           
         <h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
-<li>npm self<br>  So easy:  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g npm@...</div></pre></td></tr></table></figure></li>
+<li>npm self<br>  So easy:  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g npm@...</div></pre></td></tr></table></figure>
+</li>
 </ul>
-
+<h1 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h1>
       
       
     </div>
@@ -660,197 +875,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li></ul>
     </div>
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-tools/markdown" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/11/tools/markdown/" class="article-date">
-      <time datetime="2017-03-10T15:38:18.000Z" itemprop="datePublished">2017-03-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/11/tools/markdown/">markdown</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-html/css/css-flex" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/09/html/css/css-flex/" class="article-date">
-      <time datetime="2017-03-09T04:57:31.000Z" itemprop="datePublished">2017-03-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/09/html/css/css-flex/">css-flex</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="紧贴页面底部的页脚"><a href="#紧贴页面底部的页脚" class="headerlink" title="紧贴页面底部的页脚"></a>紧贴页面底部的页脚</h2><p>使用flex会相当容易：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- index.html --&gt;</span></div><div class="line">...</div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">        /*...省略其他 以下四句*/</div><div class="line">        body&#123;</div><div class="line">            display:flex;</div><div class="line">            flex-flow:column;</div><div class="line">            min-height:100vh;</div><div class="line">        &#125;</div><div class="line">        .content&#123; flex:1; &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">...</div></pre></td></tr></table></figure></p>
-<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><ol>
-<li>Round 1<br> 父元素使用flex布局，只需要多一句： <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.parent&#123;</div><div class="line">    display:flex;</div><div class="line">    align-items:center;</div><div class="line">    ...</div><div class="line">&#125;</div><div class="line"></div><div class="line">.child&#123;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
-</ol>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/css/">css</a><a class="article-category-link" href="/categories/css/tips/">tips</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-site/README" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/08/site/README/" class="article-date">
-      <time datetime="2017-03-08T02:02:29.000Z" itemprop="datePublished">2017-03-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/08/site/README/">base</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/site/">site</a>
-    </div>
-
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/08/site/README/#more">大航海 >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>

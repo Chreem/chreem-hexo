@@ -141,7 +141,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
                     </div>
                 </section>
                 
@@ -216,6 +216,198 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-tools/markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/11/tools/markdown/" class="article-date">
+      <time datetime="2017-03-10T15:38:18.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/11/tools/markdown/">markdown</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-html/css/css-flex" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/09/html/css/css-flex/" class="article-date">
+      <time datetime="2017-03-09T04:57:31.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/html/css/css-flex/">css-flex</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="紧贴页面底部的页脚"><a href="#紧贴页面底部的页脚" class="headerlink" title="紧贴页面底部的页脚"></a>紧贴页面底部的页脚</h2><p>使用flex会相当容易：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- index.html --&gt;</span></div><div class="line">...</div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></div><div class="line">        <span class="comment">/*...省略其他 以下四句*/</span></div><div class="line">        <span class="selector-tag">body</span>&#123;</div><div class="line">            <span class="attribute">display</span>:flex;</div><div class="line">            <span class="attribute">flex-flow</span>:column;</div><div class="line">            <span class="attribute">min-height</span>:<span class="number">100vh</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.content</span>&#123; <span class="attribute">flex</span>:<span class="number">1</span>; &#125;</div><div class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">...</div></pre></td></tr></table></figure></p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a><a class="article-category-link" href="/categories/css/tips/">tips</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/09/html/css/css-flex/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-site/README" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/site/README/" class="article-date">
+      <time datetime="2017-03-08T02:02:29.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/08/site/README/">base</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.<br>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a>
+    </div>
+
+
+      
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/08/site/README/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-html/js/vue" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -327,7 +519,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
     </div>
 
       

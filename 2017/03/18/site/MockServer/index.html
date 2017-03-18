@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nodejs mock-server | Chreem&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简而言之就是，后端还没写可以先拿这玩意来顶一顶。当然多得是办法能实现，不过图省事就用express了，数据就用*.json保存，假装自己有个mongodb。据说今后很可能经常用，先写好以备不时之需。
+environmentnpm init这个……没啥可说的
+commandernode命令行用骚年，你大学学过linux的命令行编程么没有，滚！能很方便的配置各类参数以及自动生成帮助文档–help而我确">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs mock-server">
+<meta property="og:url" content="https://chreem.github.io/2017/03/18/site/MockServer/index.html">
+<meta property="og:site_name" content="Chreem's Blog">
+<meta property="og:description" content="简而言之就是，后端还没写可以先拿这玩意来顶一顶。当然多得是办法能实现，不过图省事就用express了，数据就用*.json保存，假装自己有个mongodb。据说今后很可能经常用，先写好以备不时之需。
+environmentnpm init这个……没啥可说的
+commandernode命令行用骚年，你大学学过linux的命令行编程么没有，滚！能很方便的配置各类参数以及自动生成帮助文档–help而我确">
+<meta property="og:updated_time" content="2017-03-18T12:33:47.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs mock-server">
+<meta name="twitter:description" content="简而言之就是，后端还没写可以先拿这玩意来顶一顶。当然多得是办法能实现，不过图省事就用express了，数据就用*.json保存，假装自己有个mongodb。据说今后很可能经常用，先写好以备不时之需。
+environmentnpm init这个……没啥可说的
+commandernode命令行用骚年，你大学学过linux的命令行编程么没有，滚！能很方便的配置各类参数以及自动生成帮助文档–help而我确">
+  
+    <link rel="alternative" href="/atom.xml" title="Chreem&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Chreem</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/tags/">文章标签</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=RHFwfXRzfHV9dQQ1NWonKyk" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/chreem" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="#" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个做着白日梦的，毫无目标、四处游荡的小菜比</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Chreem</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Chreem</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/tags/">文章标签</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=RHFwfXRzfHV9dQQ1NWonKyk" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/chreem" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-site/MockServer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/18/site/MockServer/" class="article-date">
+      <time datetime="2017-03-17T15:53:18.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nodejs mock-server
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a><a class="article-category-link" href="/categories/site/node/">node</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commander/">commander</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>简而言之就是，后端还没写可以先拿这玩意来顶一顶。当然多得是办法能实现，不过图省事就用express了，数据就用*.json保存，假装自己有个mongodb。据说今后很可能经常用，先写好以备不时之需。</p>
+<h1 id="environment"><a href="#environment" class="headerlink" title="environment"></a>environment</h1><h2 id="npm-init"><a href="#npm-init" class="headerlink" title="npm init"></a>npm init</h2><p>这个……没啥可说的</p>
+<h2 id="commander"><a href="#commander" class="headerlink" title="commander"></a><a href="https://www.npmjs.com/package/commander" target="_blank" rel="external">commander</a></h2><p>node命令行用<br><del>骚年，你大学学过linux的命令行编程么</del><br><del>没有，滚！</del><br>能很方便的配置各类参数以及自动生成帮助文档–help<br>而我确实没啥特殊要求，写个最简单的能关注文件是否变化以及指定端口就完事了</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/usr/bin/env node</span></div><div class="line"><span class="comment">//骚年 你可曾见过linux的脚本#!/bin/bash</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</div><div class="line"><span class="keyword">var</span> filename;</div><div class="line"></div><div class="line">program</div><div class="line">    .command(<span class="string">'watch [file]'</span>)</div><div class="line">    .description(<span class="string">'Add a file to watch'</span>)</div><div class="line">    .action(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</div><div class="line">        filename = file;</div><div class="line">    &#125;);</div><div class="line">program         <span class="comment">// 之所以单列一条而没和上面放一起是为了能正常显示帮助文档</span></div><div class="line">    .option(<span class="string">'-p, --port &lt;n&gt;'</span>, <span class="string">'Add port to listen, default is 8080'</span>, /^[<span class="number">1</span><span class="number">-9</span>]\d*$/, <span class="number">8080</span>);</div><div class="line">program.parse(process.argv);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> filename === <span class="string">'undefined'</span>) &#123;</div><div class="line">    program.outputHelp();</div><div class="line">    process.exit(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 参数不对显示帮助文档</span></div><div class="line">E:\Web\node\chr-mock&gt;node index.js watch</div><div class="line"></div><div class="line">  Usage: index [options] [command]</div><div class="line"></div><div class="line"></div><div class="line">  Commands:</div><div class="line"></div><div class="line">    watch [file]  Add a file to watch</div><div class="line"></div><div class="line">  Options:</div><div class="line"></div><div class="line">    -h, --help      output usage information</div><div class="line">    -p, --port &lt;n&gt;  Add port to listen, default is 8080</div><div class="line">*/</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'file:'</span> + filename);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'port:'</span> + program.port);</div></pre></td></tr></table></figure>
+<h2 id="express"><a href="#express" class="headerlink" title="express"></a><a href="http://www.expressjs.com.cn/" target="_blank" rel="external">express</a></h2><p>后面要做的基本上就在这里的watch.js里写了<br>根据上面命令行拿到的文件及监听端口运行express<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* index.js */</span></div><div class="line"><span class="keyword">const</span> watch = <span class="built_in">require</span>(<span class="string">'./watch.js'</span>);</div><div class="line">... <span class="comment">//上一步</span></div><div class="line">watch.run(filename, program.port);</div><div class="line"></div><div class="line"><span class="comment">/* watch.js */</span></div><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</div><div class="line">    , app = express();</div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    run(file, port)&#123;</div><div class="line">        app.get(<span class="string">'/'</span>, (req, res)=&gt;&#123;</div><div class="line">            res.send(<span class="string">'hello~'</span>);</div><div class="line">        &#125;);</div><div class="line">        app.listen(port);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>以及各种中间件：  </p>
+<ol>
+<li>跨域用：cors</li>
+<li>解析post body用：body-parser</li>
+</ol>
+<p>其他：</p>
+<ol>
+<li>url</li>
+<li>path</li>
+<li>jsonfile</li>
+</ol>
+<h1 id="analysis"><a href="#analysis" class="headerlink" title="analysis"></a>analysis</h1><h2 id="router-match"><a href="#router-match" class="headerlink" title="router match"></a>router match</h2><p>首先要做的就是根据路由来匹配访问字段，没啥疑问应该<br>该节参考<a href="http://www.expressjs.com.cn/guide/routing.html" target="_blank" rel="external">api 路由</a><br>※ express.Router，显然不太适用在参数不定的这里<br><del>简单粗暴全匹配，掐头去尾嘎嘣脆</del><br>先解析url，url.parse(*).pathname掐头去尾按/分割就是参数了<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">run(file, port)&#123;</div><div class="line">    app.all(<span class="string">'*'</span>,(req, res)=&gt;&#123;</div><div class="line">        <span class="keyword">let</span> params = url.parse(req.originalUrl).pathname</div><div class="line">            .replace(<span class="regexp">/^\//</span>,<span class="string">''</span>)</div><div class="line">            .replace(<span class="regexp">/\/$/</span>,<span class="string">''</span>)</div><div class="line">            .split(<span class="string">'/'</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 参数加工处理   及各种判断</span></div><div class="line">        <span class="comment">// 请求分类     以及各种判断</span></div><div class="line">        <span class="comment">// 是时候甩前端一脸数据了</span></div><div class="line">    &#125;)</div><div class="line">    app.listen(port);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="params-complete"><a href="#params-complete" class="headerlink" title="params complete"></a>params complete</h2><h2 id="method-amp-return-results"><a href="#method-amp-return-results" class="headerlink" title="method &amp; return results"></a>method &amp; return results</h2><h1 id="publish-to-npm"><a href="#publish-to-npm" class="headerlink" title="publish to npm"></a>publish to npm</h1><p>只需要简单几步就能完成……：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1. 跳过第二步</span></div><div class="line"><span class="comment"># 2. 注册</span></div><div class="line">$ <span class="built_in">cd</span> chr-mock             <span class="comment"># 至项目目录</span></div><div class="line">~/chr-mock$ npm login     <span class="comment"># 登录</span></div><div class="line">~/chr-mock$ npm publish   <span class="comment"># 发布</span></div></pre></td></tr></table></figure></p>
+<p>然后就能从公有仓库下载：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm i -g chr-mock</div><div class="line">$ chr watch data.json</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/18/site/MockServer/">nodejs mock-server</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Chreem 的个人博客">Chreem</a></p>
+        <p><span>发布时间:</span>2017年03月17日 - 23时53分</p>
+        <p><span>最后更新:</span>2017年03月18日 - 21时33分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/18/site/MockServer/" title="nodejs mock-server">https://chreem.github.io/2017/03/18/site/MockServer/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://chreem.github.io/2017/03/18/site/MockServer/　　作者: Chreem" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/17/site/how-to-deal-data/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">how to deal data</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#environment"><span class="toc-number">1.</span> <span class="toc-text">environment</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#npm-init"><span class="toc-number">1.1.</span> <span class="toc-text">npm init</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#commander"><span class="toc-number">1.2.</span> <span class="toc-text">commander</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#express"><span class="toc-number">1.3.</span> <span class="toc-text">express</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#analysis"><span class="toc-number">2.</span> <span class="toc-text">analysis</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#router-match"><span class="toc-number">2.1.</span> <span class="toc-text">router match</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#params-complete"><span class="toc-number">2.2.</span> <span class="toc-text">params complete</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#method-amp-return-results"><span class="toc-number">2.3.</span> <span class="toc-text">method & return results</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#publish-to-npm"><span class="toc-number">3.</span> <span class="toc-text">publish to npm</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/03/17/site/how-to-deal-data/" title="下一篇: how to deal data">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/site/MockServer/">nodejs mock-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/site/how-to-deal-data/">how to deal data</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/html/css/bootstrap-GridSystem/">bootstrap-GridSystem</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/tools/webstorm-config/">webstorm-config</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/html/css/screen-size/">screen-size</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/tools/build/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/tools/browser/chrome-extension/">chrome插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/site/trouble/">trouble in my building site</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/build/npm/">npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/RegularExpression/">RegularExpression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/html/css/css-flex/">css-flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/site/README/">base</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/html/js/vue/">vue's accumulation</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/tools/git-remote/">Git Remote</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/cloud/docker-container-ip/">Docker Container IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/README/">How this work</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Chreem
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
