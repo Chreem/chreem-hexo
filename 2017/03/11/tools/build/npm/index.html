@@ -5,28 +5,22 @@
   
   <title>npm | Chreem&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="update
-npm self  So easy:  1$ npm install -g npm@...
-
-
-publish">
+  <meta name="description" content="NPMnode package manager
+update
+npm self  So easy:  1npm install -g npm@...">
 <meta property="og:type" content="article">
 <meta property="og:title" content="npm">
 <meta property="og:url" content="https://chreem.github.io/2017/03/11/tools/build/npm/index.html">
 <meta property="og:site_name" content="Chreem's Blog">
-<meta property="og:description" content="update
-npm self  So easy:  1$ npm install -g npm@...
-
-
-publish">
-<meta property="og:updated_time" content="2017-03-17T15:00:08.290Z">
+<meta property="og:description" content="NPMnode package manager
+update
+npm self  So easy:  1npm install -g npm@...">
+<meta property="og:updated_time" content="2017-03-21T15:10:35.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="npm">
-<meta name="twitter:description" content="update
-npm self  So easy:  1$ npm install -g npm@...
-
-
-publish">
+<meta name="twitter:description" content="NPMnode package manager
+update
+npm self  So easy:  1npm install -g npm@...">
   
     <link rel="alternative" href="/atom.xml" title="Chreem&#39;s Blog" type="application/atom+xml">
   
@@ -154,7 +148,7 @@ publish">
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/settings/" style="font-size: 10px;">settings</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
                     </div>
                 </section>
                 
@@ -260,7 +254,7 @@ publish">
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -270,11 +264,32 @@ publish">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><ul>
-<li>npm self<br>  So easy:  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g npm@...</div></pre></td></tr></table></figure>
+        <h1 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h1><p>node package manager</p>
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><ul>
+<li>npm self<br>  So easy:  <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g npm@...</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h1>
+<a id="more"></a>
+<h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><p>You can check more like automatically release npm package on Travis CI.</p>
+<h3 id="login"><a href="#login" class="headerlink" title="login"></a>login</h3><p>If you already have a token, then don’t need to login again.<br>You can check it at this directory <code>~/.npmrc</code><br>After login: <code>npm publish</code>, done.</p>
+<h2 id="settings"><a href="#settings" class="headerlink" title="settings"></a>settings</h2><p>These are some of <code>package.json</code> settings, usually could get basic settings by <code>npm init</code>. The <strong>blod</strong> means commands may work for <a href="https://www.npmjs.com/" target="_blank" rel="external">https://www.npmjs.com/</a> to show. <em>Italic</em> means automatically build site like Travis CI would use.</p>
+<ul>
+<li><p><strong>with global install</strong><br>  If this package is npm command line pkg, maybe run at global. It need this: <code>&quot;preferGlobal&quot;: true</code></p>
+</li>
+<li><p>command line<br>  Always sets with global.</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"bin"</span>: &#123; <span class="string">"chr"</span>: <span class="string">"./index.js"</span> &#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><em>scripts</em><br>  The command when use npm * to run.For example:</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"test"</span>: <span class="string">"mocha"</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>  means <code>npm test</code> is the same as <code>mocha</code>.<br>  <del>So why i use more words to instead of less words.😒</del> Is that what I want? Look at the <em>Italic</em>.</p>
+</li>
+<li><p>keywords<br>  <del>nothing to say.</del></p>
+</li>
+<li><p><strong><em>repository</em></strong><br>  First of settings that both npm&amp;travis uses. But, actually nothing could introduct.</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"repository"</span>: &#123;</div><div class="line">    <span class="string">"type"</span>: <span class="string">"git"</span>,</div><div class="line">    <span class="string">"url"</span>: <span class="string">"https://github.com/Chreem/chr-mock"</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
       
       
     </div>
@@ -286,7 +301,7 @@ publish">
         <p><span>本文标题:</span><a href="/2017/03/11/tools/build/npm/">npm</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Chreem 的个人博客">Chreem</a></p>
         <p><span>发布时间:</span>2017年03月11日 - 09时55分</p>
-        <p><span>最后更新:</span>2017年03月18日 - 00时00分</p>
+        <p><span>最后更新:</span>2017年03月22日 - 00时10分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/03/11/tools/build/npm/" title="npm">https://chreem.github.io/2017/03/11/tools/build/npm/</a>
             <span class="copy-path" data-clipboard-text="原文: https://chreem.github.io/2017/03/11/tools/build/npm/　　作者: Chreem" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -324,7 +339,7 @@ publish">
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#update"><span class="toc-number">1.</span> <span class="toc-text">update</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#publish"><span class="toc-number">2.</span> <span class="toc-text">publish</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NPM"><span class="toc-number">1.</span> <span class="toc-text">NPM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#update"><span class="toc-number">1.1.</span> <span class="toc-text">update</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#publish"><span class="toc-number">1.2.</span> <span class="toc-text">publish</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#login"><span class="toc-number">1.2.1.</span> <span class="toc-text">login</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#settings"><span class="toc-number">1.3.</span> <span class="toc-text">settings</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -386,7 +401,7 @@ publish">
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/site/MockServer/">nodejs mock-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/site/how-to-deal-data/">how to deal data</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/html/css/bootstrap-GridSystem/">bootstrap-GridSystem</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/tools/webstorm-config/">webstorm-config</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/html/css/screen-size/">screen-size</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/tools/build/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/tools/browser/chrome-extension/">chrome插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/site/trouble/">trouble in my building site</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/build/npm/">npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/RegularExpression/">RegularExpression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/html/css/css-flex/">css-flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/site/README/">base</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/html/js/vue/">vue's accumulation</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/tools/git-remote/">Git Remote</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/cloud/docker-container-ip/">Docker Container IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/README/">How this work</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/tools/build/Travis-CI/">Travis CI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/tools/IDE/VSCode/">Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/site/MockServer/">nodejs mock-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/site/how-to-deal-data/">how to deal data</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/html/css/bootstrap-GridSystem/">bootstrap-GridSystem</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/tools/IDE/webstorm-config/">webstorm-config</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/html/css/screen-size/">screen-size</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/tools/build/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/tools/browser/chrome-extension/">chrome插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/site/trouble/">trouble in my building site</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/build/npm/">npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/RegularExpression/">RegularExpression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/html/css/css-flex/">css-flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/site/README/">base</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/html/js/vue/">vue's accumulation</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/tools/git-remote/">Git Remote</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/cloud/docker-container-ip/">Docker Container IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/README/">How this work</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
