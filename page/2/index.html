@@ -141,7 +141,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/data/" style="font-size: 10px;">data</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/settings/" style="font-size: 10px;">settings</a> <a href="/tags/size/" style="font-size: 10px;">size</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/trouble/" style="font-size: 10px;">trouble</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a>
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/axios/" style="font-size: 15px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/ip/" style="font-size: 10px;">ip</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/media/" style="font-size: 15px;">media</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/module/" style="font-size: 10px;">module</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/settings/" style="font-size: 10px;">settings</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/syntax/" style="font-size: 20px;">syntax</a> <a href="/tags/test/" style="font-size: 15px;">test</a> <a href="/tags/travis-ci/" style="font-size: 10px;">travis-ci</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 20px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
                     </div>
                 </section>
                 
@@ -217,10 +217,360 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-tools/build/npm" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-base/css/bootstrap" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/11/tools/build/npm/" class="article-date">
+      <a href="/2017/03/15/base/css/bootstrap/" class="article-date">
+      <time datetime="2017-03-14T15:05:26.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/base/css/bootstrap/">bootstrap</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>主要是栅格系统的实现<br>话不多说上源码……的less版</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">    <span class="attribute">margin-left  </span>: auto;</div><div class="line">    <span class="attribute">margin-right </span>: auto;</div><div class="line">    <span class="attribute">padding-left </span>: <span class="number">15px</span>;</div><div class="line">    <span class="attribute">padding-right</span>: <span class="number">15px</span>;</div><div class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">768px</span>)  &#123; <span class="attribute">width</span>: <span class="number">750px</span>;  &#125;</div><div class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">992px</span>)  &#123; <span class="attribute">width</span>: <span class="number">970px</span>;  &#125;</div><div class="line">    <span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1200px</span>) &#123; <span class="attribute">width</span>: <span class="number">1170px</span>; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>margin左右分别配置auto不用多说，padding左右是为了防止内容触碰浏览器边界，也为了之后.row和.col嵌套，若想内部元素也有一定的间隔就无需一个个的设置</li>
+<li>看媒体查询可以发现container的四个档位，分别是指定平板、大屏、超大屏的三个固定值，剩下的就是小屏的不定宽了。</li>
+<li>指定width比屏幕略窄则是为了防止元素过高出现垂直滚动条时压缩.container导致其出现水平滚动条</li>
+</ol>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/media/">media</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/15/base/css/bootstrap/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tools/IDE/webstorm-config" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/14/tools/IDE/webstorm-config/" class="article-date">
+      <time datetime="2017-03-14T08:25:32.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/tools/IDE/webstorm-config/">webstorm-config</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h1><p>平时用的相当多的除了vscode就是webstorm了，当然不仅限于webstorm<br>本篇主要还是积累一些平时用上用不上的settings修改，毕竟把工具调教顺手还是相当有必要的</p>
+<h2 id="vue-extension"><a href="#vue-extension" class="headerlink" title="vue extension"></a>vue extension</h2><p>vue扩展需另行安装（<del>明明angular react都直接有了，就不能再厚道一点？</del>）</p>
+<ol>
+<li>安装<br> File–&gt;Settings–&gt;Plugins–&gt;Install JetBrains plugins<br> 搜vue.js，install，reboot webstorm……OK <del>好了，关机睡觉。。。</del></li>
+<li>配置Vue模板<br> 依然settings，–&gt;Editor–&gt;File Types–&gt;Vue.js Template的Registered Patterns里是否包含了*.vue<br> 若没有加上即可<br> 然后在–&gt;Editor–&gt;File and Code Templates下添加Vue File，具体如下：<br> <img src="https://cloud.githubusercontent.com/assets/12951147/23892069/19d57a8a-08d4-11e7-8690-3ec3a9c83be8.png" alt="image"></li>
+<li>安心食用</li>
+</ol>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/settings/">settings</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webstorm/">webstorm</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/14/tools/IDE/webstorm-config/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-base/css/screen-size" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/14/base/css/screen-size/" class="article-date">
+      <time datetime="2017-03-14T01:59:51.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/base/css/screen-size/">screen-size</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="media"><a href="#media" class="headerlink" title="@media"></a>@media</h1><p>在此之前我只知道bootstrap……然而不知为何最近丝毫不想用这玩意<br><del>这套全家桶并不如Vue来的有快感</del> 在自己有足够水平写组件库之前还是安心拿来主义好了，比如最近就用的饿了么Element UI</p>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><h3 id="跳坑爬坑之旅"><a href="#跳坑爬坑之旅" class="headerlink" title="跳坑爬坑之旅"></a>跳坑爬坑之旅</h3><p>还是跳了个坑=，=，之前百度到的这段里<br><code>@media screen and(min-width: 1000px)</code>如果单独放到一个css文件然后从其他地方引入<code>@import &#39;./screen.css&#39;</code>会导致媒体查询部分不能正常工作。小小修改一下即可：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.screen</span> &#123;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">background-color</span>: white;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="keyword">media</span> (min-width:  <span class="number">768px</span>) &#123; <span class="selector-class">.screen</span> &#123; <span class="attribute">width</span>: <span class="number">750px</span>; &#125; &#125;</div></pre></td></tr></table></figure>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/css/">css</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/media/">media</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/14/base/css/screen-size/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node/webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/14/node/webpack/" class="article-date">
+      <time datetime="2017-03-14T01:55:25.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/node/webpack/">webpack</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>Something happend to me…when I was young.</p>
+<ul>
+<li>webpack rules &amp; loaders<br>  So simple changed:<br>  webpack 2.0+将loaders替换为rules，但loaders依然提供部分支持</li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/node/">node</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/module/">module</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-tools/browser/chrome-extension" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/12/tools/browser/chrome-extension/" class="article-date">
+      <time datetime="2017-03-12T07:39:36.000Z" itemprop="datePublished">2017-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/12/tools/browser/chrome-extension/">chrome插件推荐</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Chrome-Extensions"><a href="#Chrome-Extensions" class="headerlink" title="Chrome Extensions"></a>Chrome Extensions</h1><p>参考我chrome一些日常插件整理，多少应该可以提高(zhuang)些(xia)效率(b)<br>通常都需自备梯子<br>像什么360极速浏览器或是别的XXX极速内核可能能用</p>
+<h2 id="Google翻译"><a href="#Google翻译" class="headerlink" title="Google翻译"></a><strong>Google翻译</strong></h2><p>翻译放第一个……<br>不多说都是泪，安装之后无需梯子也能用<br>毕竟自家的东西，风格与chrome很搭，相比360极速+有道翻译除了天ch.ao速度的天然劣势之外无可挑剔</p>
+<p><a href="https://chrome.google.com/webstore/detail/aapbdbdomjkkjkaonfhkkikfgjllcleb"><img src="https://cloud.githubusercontent.com/assets/12951147/23830063/50b49b06-073c-11e7-9cae-f0f988f12f11.png" alt="image"></a></p>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extension/">extension</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/12/tools/browser/chrome-extension/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-node/npm" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/11/node/npm/" class="article-date">
       <time datetime="2017-03-11T01:55:19.000Z" itemprop="datePublished">2017-03-11</time>
 </a>
     </div>
@@ -234,7 +584,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/11/tools/build/npm/">npm</a>
+      <a class="article-title" href="/2017/03/11/node/npm/">npm</a>
     </h1>
   
 
@@ -258,18 +608,18 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
+    <a class="article-category-link" href="/categories/node/">node</a>
     </div>
 
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/publish/">publish</a></li></ul>
     </div>
 
       
         <p class="article-more-link">
-          <a  href="/2017/03/11/tools/build/npm/#more">大航海 >></a>
+          <a  href="/2017/03/11/node/npm/#more">大航海 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -386,6 +736,7 @@
 <li><p>MD012/no-multiple-blanks: Multiple consecutive blank lines [Expected: 1; Actual: 2]<br>  行空多了呗</p>
 </li>
 <li>MD025/single-h1: Multiple top level headers in the same document<br>  当初没在意，还想着为啥Github上一级二级标题下面都会接着下划线呀……之类的</li>
+<li>MD026/no-trailing-punctuation: Trailing punctuation in header [Punctuation: ‘?’]<br>  标题不要跟标点</li>
 <li>MD032/blanks-around-lists: Lists should be surrounded by blank lines<br>  32同时会引出一个语法错误，列表内容紧接着的一行应该要但可以不用空四格。遇到没空出来，多行数据就GG，错位多次都是泪😢</li>
 </ul>
           
@@ -403,7 +754,7 @@
 
       
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/syntax/">syntax</a></li></ul>
     </div>
 
       
@@ -427,10 +778,10 @@
 
 
   
-    <article id="post-html/css/css-flex" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-base/css/css-flex" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/09/html/css/css-flex/" class="article-date">
+      <a href="/2017/03/09/base/css/css-flex/" class="article-date">
       <time datetime="2017-03-09T04:57:31.000Z" itemprop="datePublished">2017-03-09</time>
 </a>
     </div>
@@ -444,7 +795,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/09/html/css/css-flex/">css-flex</a>
+      <a class="article-title" href="/2017/03/09/base/css/css-flex/">css-flex</a>
     </h1>
   
 
@@ -454,7 +805,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="紧贴页面底部的页脚"><a href="#紧贴页面底部的页脚" class="headerlink" title="紧贴页面底部的页脚"></a>紧贴页面底部的页脚</h2><p>使用flex会相当容易：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- index.html --&gt;</span></div><div class="line">...</div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></div><div class="line">        <span class="comment">/*...省略其他 以下四句*/</span></div><div class="line">        <span class="selector-tag">body</span>&#123;</div><div class="line">            <span class="attribute">display</span>:flex;</div><div class="line">            <span class="attribute">flex-flow</span>:column;</div><div class="line">            <span class="attribute">min-height</span>:<span class="number">100vh</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.content</span>&#123; <span class="attribute">flex</span>:<span class="number">1</span>; &#125;</div><div class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">...</div></pre></td></tr></table></figure></p>
+              <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="紧贴页面底部的页脚"><a href="#紧贴页面底部的页脚" class="headerlink" title="紧贴页面底部的页脚"></a>紧贴页面底部的页脚</h2><p>使用flex会相当容易：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- index.html --&gt;</span></div><div class="line">...</div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></div><div class="line">        <span class="comment">/*...*/</span></div><div class="line">        <span class="selector-tag">body</span>&#123;</div><div class="line">            <span class="attribute">display</span>:flex;</div><div class="line">            <span class="attribute">flex-flow</span>:column;</div><div class="line">            <span class="attribute">min-height</span>:<span class="number">100vh</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.content</span>&#123; <span class="attribute">flex</span>:<span class="number">1</span>; &#125;</div><div class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">...</div></pre></td></tr></table></figure>
           
       
       
@@ -464,7 +816,7 @@
       
       
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/css/">css</a><a class="article-category-link" href="/categories/css/tips/">tips</a>
+    <a class="article-category-link" href="/categories/css/">css</a>
     </div>
 
 
@@ -475,7 +827,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/03/09/html/css/css-flex/#more">大航海 >></a>
+          <a  href="/2017/03/09/base/css/css-flex/#more">大航海 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -521,7 +873,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.<br>
+              <h1 id="introduct-my-site"><a href="#introduct-my-site" class="headerlink" title="introduct my site"></a>introduct my site</h1><p>After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.</p>
           
       
       
@@ -557,280 +909,9 @@
 
 
   
-    <article id="post-html/js/vue" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/07/html/js/vue/" class="article-date">
-      <time datetime="2017-03-07T13:14:01.000Z" itemprop="datePublished">2017-03-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/07/html/js/vue/">vue&#39;s accumulation</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>It’s accumulation for vue.<br><a href="https://vuejs.org/"><img src="https://img.shields.io/npm/v/vue.svg" alt="Vue version"></a><br>Rather than accumulation, problems summary is more likely.<br>All of these are running by <code>npm install</code>, makesure npm&amp;node was installed.<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/js/">js</a><a class="article-category-link" href="/categories/js/tips/">tips</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/07/html/js/vue/#more">大航海 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-tools/git-remote" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/05/tools/git-remote/" class="article-date">
-      <time datetime="2017-03-04T16:00:00.000Z" itemprop="datePublished">2017-03-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/05/tools/git-remote/">Git Remote</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Git-remote"><a href="#Git-remote" class="headerlink" title="Git remote"></a>Git remote</h1><p>Git is currently very widely used. This article outlined git remote repertory. Of course you can check more detail on <a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html"><del>Ruanyifeng laoshi</del> Teacher ruan’s post</a>.<br><a href="https://www.baidu.com">So how to install git?</a> (<del><code>apt-get install</code></del>)</p>
-<h2 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h2><p>Above all, you should get someone’s code then we can talk others. Looks like a simple command? Without any protect, it’s certainly simple. For example, I want to clone my project from github to folder ~/website/project1:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~</div><div class="line">git <span class="built_in">clone</span> https://chreem.github.com/blog website/project1</div></pre></td></tr></table></figure>
-<p>Wait a while, it’s done. What if someone is so lazy that don’t want to type password, and use SSH?(Sure, you can use SSH key rather than password, it’s safer than a symmetric cryptography that could be <del>exploded</del> brute force attack to uses the asymmetric one.)  Some cloud service provider like RedHat OpenShift also use SSH as git links. You would use command like always:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> ssh://randomuser@project-yourname.rhcloud.com/~/git/project.git/</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/">ssh</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/05/tools/git-remote/#more">大航海 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-cloud/docker-container-ip" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/03/cloud/docker-container-ip/" class="article-date">
-      <time datetime="2017-03-03T01:14:23.000Z" itemprop="datePublished">2017-03-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/03/cloud/docker-container-ip/">Docker Container IP</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Default-of-Docker-Network"><a href="#Default-of-Docker-Network" class="headerlink" title="Default of Docker Network"></a>Default of Docker Network</h1><p>Usually by <code>apt-get install docker.io</code> (<del>or any other way</del>) to get docker has it’s own network config: </p>
-<blockquote>
-<p>docker0,172.17.0.0/16</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/cloud/">cloud</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/03/cloud/docker-container-ip/#more">大航海 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-README" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/03/README/" class="article-date">
-      <time datetime="2017-03-03T01:14:23.000Z" itemprop="datePublished">2017-03-03</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/03/README/">How this work</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h1><p><a href="http://hexo.chreem.xyz"><img src="https://img.shields.io/badge/Chreem--Hexo-90%25-yellowgreen.svg?style=flat-square" alt="完成度"></a><br>About a month ago, young ignorance Chreem bought a QCloud VM that cost 60+￥/month !!! with just 1M bandwith !!!.<br>So I’m ready to migrate my site to ConoHa.Not only cheaper than QCloud average 10￥, but also 100M :P.Just need to pay attention to the exchange rate.<br>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/03/README/#more">大航海 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>非常寥批的扫雷 | Chreem&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="扫雷突发奇想就开启了自己的游戏分类，先做个简单的扫雷练练手……环境：没啥环境，用vue-cli调试单个模块而已（就是偏爱vue😜）  
+遇到问题：
+
+vue data属性数组的深度监视
+每个格子的状态及样式
+按队列遍历应该“点击”的位置
+胜利条件与脑细胞的抉择（我选择多活几年😂）
+
+今后可能添加：
+
+插旗功能
+自定义难度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="非常寥批的扫雷">
+<meta property="og:url" content="https://chreem.github.io/2017/03/26/site/games/search-boom/index.html">
+<meta property="og:site_name" content="Chreem's Blog">
+<meta property="og:description" content="扫雷突发奇想就开启了自己的游戏分类，先做个简单的扫雷练练手……环境：没啥环境，用vue-cli调试单个模块而已（就是偏爱vue😜）  
+遇到问题：
+
+vue data属性数组的深度监视
+每个格子的状态及样式
+按队列遍历应该“点击”的位置
+胜利条件与脑细胞的抉择（我选择多活几年😂）
+
+今后可能添加：
+
+插旗功能
+自定义难度">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/12951147/24328934/d27b07f4-1229-11e7-85e1-a671d9a608d5.png">
+<meta property="og:updated_time" content="2017-03-26T11:02:01.254Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="非常寥批的扫雷">
+<meta name="twitter:description" content="扫雷突发奇想就开启了自己的游戏分类，先做个简单的扫雷练练手……环境：没啥环境，用vue-cli调试单个模块而已（就是偏爱vue😜）  
+遇到问题：
+
+vue data属性数组的深度监视
+每个格子的状态及样式
+按队列遍历应该“点击”的位置
+胜利条件与脑细胞的抉择（我选择多活几年😂）
+
+今后可能添加：
+
+插旗功能
+自定义难度">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/12951147/24328934/d27b07f4-1229-11e7-85e1-a671d9a608d5.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Chreem&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Chreem</a></h1>
+        </hgroup>
+
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/tags/">文章标签</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=RHFwfXRzfHV9dQQ1NWonKyk" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/chreem" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="#" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/axios/" style="font-size: 15px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/ip/" style="font-size: 10px;">ip</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/media/" style="font-size: 15px;">media</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/module/" style="font-size: 10px;">module</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/settings/" style="font-size: 10px;">settings</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/syntax/" style="font-size: 20px;">syntax</a> <a href="/tags/test/" style="font-size: 15px;">test</a> <a href="/tags/travis-ci/" style="font-size: 10px;">travis-ci</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 20px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个做着白日梦的，毫无目标、四处游荡的小菜比</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Chreem</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Chreem</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/tags/">文章标签</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=RHFwfXRzfHV9dQQ1NWonKyk" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/chreem" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-site/games/search-boom" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/26/site/games/search-boom/" class="article-date">
+      <time datetime="2017-03-26T01:04:33.000Z" itemprop="datePublished">2017-03-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      非常寥批的扫雷
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/games/">games</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/queue/">queue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="扫雷"><a href="#扫雷" class="headerlink" title="扫雷"></a>扫雷</h1><p>突发奇想就开启了自己的游戏分类，先做个简单的扫雷练练手……<br>环境：没啥环境，用vue-cli调试单个模块而已（就是偏爱vue😜）  </p>
+<p>遇到问题：</p>
+<ul>
+<li>vue data属性数组的深度监视</li>
+<li>每个格子的状态及样式</li>
+<li>按队列遍历应该“点击”的位置</li>
+<li>胜利条件与脑细胞的抉择（我选择多活几年😂）</li>
+</ul>
+<p>今后可能添加：</p>
+<ul>
+<li>插旗功能</li>
+<li>自定义难度</li>
+</ul>
+<p><img src="https://cloud.githubusercontent.com/assets/12951147/24328934/d27b07f4-1229-11e7-85e1-a671d9a608d5.png" alt="boom"></p>
+<a id="more"></a>
+<h2 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h2><p>转念一想就不画流程图了，<del>懒虫上脑了</del>，随便写写拉倒</p>
+<h3 id="core"><a href="#core" class="headerlink" title="core"></a>core</h3><p>用两个二维数组，分别存放雷的真实情况及样式情况，样式数组用于绑定至各格子<br>分别剥开了几个方法：</p>
+<ul>
+<li>初始化棋盘：<em>样式棋盘坐标大小及格子状态初始化</em></li>
+<li>雷初始化(行，列)：<br>  逻辑棋盘由样式棋盘拷贝一份副本<br>  根据雷所占百分比计算数量并初始化逻辑棋盘<br>  生成boom💣时，逻辑棋盘[行][列]位置不应该有雷</li>
+<li>计算没被点击的格子数量：单纯的遍历一遍逻辑棋盘而已</li>
+<li>查找炸弹(行，列，数组，方法)（<del>名字啥的就别在意了。。。</del>）：遍历点击位置周围8格时触发方法，不包含触边及点击位置自身</li>
+<li><strong>清除动作([确认框],[方法])</strong>：<br>  抄袭jQuery的extend判断是否深度克隆来判断是否弹出确认框<br>  执行清除动作前执行方法<br>  初始化棋盘</li>
+</ul>
+<p>主要流程：</p>
+<ul>
+<li>首次进入：初始化棋盘</li>
+<li>切换模式：<br>  将isStart作为是否弹出询问参数执行清除动作，并在初始化前设置模式<br>  把坐标也告诉格子，在格子的点击事件里返回坐标，外层统一处理</li>
+<li>显示所有炸弹(failed)：<br>  一局还没开始随便初始化雷，但初始化前需执行一遍清除动作，同样以isStart作为询问参数<br>  已开始则，检查failed是否因点到炸弹导致，主动放弃才弹出确认框<br>  <em>没啥问题就把逻辑棋盘整个替掉样式棋盘</em></li>
+<li>清除按钮：仅仅执行清除动作而已，以及若已开始则需确认*3😝</li>
+<li>点击事件：会由视图返回行列信息<br>  还没开始：清除动作雷初始化<br>  点到雷了，Boom！！！显示所有炸弹并标上一个failed，没点到就给点击位置 [ 和周围 ] 染上颜色😏，<em>以及把这些位置信息由逻辑棋盘赋给样式棋盘</em><br>  获取还没点击的格子数（当然不会把雷算进来拉🤓），若已经没有需要点的格子了就弹出Win！</li>
+</ul>
+<h3 id="格子"><a href="#格子" class="headerlink" title="格子"></a>格子</h3><p>格子本身只负责根据绑定值的变化来改变样式，并在点击事件中提交坐标即可</p>
+<h4 id="需要哪些样式"><a href="#需要哪些样式" class="headerlink" title="需要哪些样式"></a>需要哪些样式</h4><p>也就分三种情况而已，如果想和xp扫雷类似根据雷的数量调整字体颜色，加几个style然后根据雷数push相应样式入数组就完事了：</p>
+<ol>
+<li>boom!!!💣，用-1表示</li>
+<li>不是雷（显示周围雷的数量，数据需求范围<code>x∈[0,8] , x∈n</code>）</li>
+<li>不知道，-1给了雷0-8给了非雷，那么：没点过的格子应该用-2喽-，-<br> 结果某菜鸡用的===””来判断是否点过 <del>就是要增加难度</del></li>
+</ol>
+<h4 id="格子的样式根据数据调整"><a href="#格子的样式根据数据调整" class="headerlink" title="格子的样式根据数据调整"></a>格子的样式根据数据调整</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//格子根据绑定数据判断显示状态</span></div><div class="line"><span class="comment">//数据由主体提供，为该格子周围雷的个数</span></div><div class="line"><span class="comment">//默认情况该数据==='' 表示没被点过</span></div><div class="line">&lt;div :<span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">//其中cls为计算属性，根据传入的雷个数得出</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">    ...,</div><div class="line">    <span class="attr">computed</span>:&#123;</div><div class="line">        cls()&#123;</div><div class="line">            <span class="keyword">let</span> arr = defaultClass.concat(); <span class="comment">//默认样式</span></div><div class="line">            <span class="keyword">if</span>(这个格子被点了) &#123;</div><div class="line">                <span class="keyword">if</span>(本身就是雷) &#123; arr.push(这是颗雷); &#125;</div><div class="line">                <span class="keyword">else</span>&#123; arr.push(并不是雷并给arr带上绿帽); &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> arr;</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="extension"><a href="#extension" class="headerlink" title="extension"></a>extension</h2><p>为不为扩展目前看来也就是把有可能拎出来作为参数的部分放到vue对象外而已，今后可能用上这组件时也就把这些地方换到vue.props里完事<br>还是稍微留了点后路的，万一今后闲着蛋疼=，=</p>
+<ul>
+<li>默认模式和各模式的默认长宽、雷的个数等</li>
+<li>获取指定范围的随机数</li>
+<li>vue专用二维数组初始化</li>
+<li>确认框</li>
+<li>检查数字范围</li>
+</ul>
+<hr>
+<ul>
+<li>数据结构——队列</li>
+</ul>
+<h2 id="trouble"><a href="#trouble" class="headerlink" title="trouble"></a>trouble</h2><h3 id="vue-data属性数组的深度监视"><a href="#vue-data属性数组的深度监视" class="headerlink" title="vue data属性数组的深度监视"></a>vue data属性数组的深度监视</h3><p>对Vue2而言，data下的数组深监视的前提是数组元素是对象，所以用二维数组就不好使了：<br>GG思密达：<code>[[1,2,3,4,5],[2,2,3,4,5]]</code><br>需要这样用：<code>[{0:1,1:2,...},{0:2,2:2,...}]</code><br>还好已经写好的获取部分不需要改动</p>
+<h3 id="按队列遍历应该“点击”的位置"><a href="#按队列遍历应该“点击”的位置" class="headerlink" title="按队列遍历应该“点击”的位置"></a>按队列遍历应该“点击”的位置</h3><p>一个地方周围是不是应该连带被显示的判断，无非是点下一个地儿之后这个位置雷==0就把周围8个格子入队罢了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">点下一个位置，该格子入队</div><div class="line">出队并获取队首的格子</div><div class="line"><span class="keyword">while</span>(该格子不为空)&#123;</div><div class="line">    计算这个格子周围多少雷</div><div class="line">    在逻辑棋盘中标记该格子数量</div><div class="line">    同样把这个格子中雷的数量标记给样式棋盘，剩下的就交给格子组件去做了</div><div class="line">    <span class="keyword">if</span>(周围没雷)</div><div class="line">        <span class="keyword">for</span>(点击位置周围的<span class="number">8</span>个格子)&#123;</div><div class="line">            <span class="keyword">if</span>(已点击过或已在队列中)&#123; <span class="keyword">continue</span>; &#125;</div><div class="line">            循环到的这个格子入队</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="胜利条件与脑细胞（或者应该是troubling）"><a href="#胜利条件与脑细胞（或者应该是troubling）" class="headerlink" title="胜利条件与脑细胞（或者应该是troubling）"></a>胜利条件与脑细胞（或者应该是troubling）</h3><p>本来计划在每次入队时已点击格子记录自加，然而因为判断方法的漏洞导致似乎有多次重复入队（(╯‵□′)╯︵┻━┻不是让他判断在队列就跳过了么），依然没想清楚为何<br>目前的做法是每次点击队列循环完事之后遍历逻辑棋盘统计没点过的位置数量，简单粗暴</p>
+<p>为图省事队列用的数组，出队则是<code>arr=arr.slice(1)</code><br>仔细想了想，队列保存和出队方式改改的可能性：<br>保留一个游标保存当前指向的元素下标，出队时返回该下标元素然后下标++而不改变原有数组<br>while(格子不为空)中使用find就不会漏掉元素了，说不定还能顺便保存点击记录<br><del>不过岂不是徒增队列长度？得不偿失？还是简单粗暴好了</del></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/03/26/site/games/search-boom/">非常寥批的扫雷</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Chreem 的个人博客">Chreem</a></p>
+        <p><span>发布时间:</span>2017年03月26日 - 09时04分</p>
+        <p><span>最后更新:</span>2017年03月26日 - 20时02分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/03/26/site/games/search-boom/" title="非常寥批的扫雷">https://chreem.github.io/2017/03/26/site/games/search-boom/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://chreem.github.io/2017/03/26/site/games/search-boom/　　作者: Chreem" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/25/base/js/ts/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">typescript</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#扫雷"><span class="toc-number">1.</span> <span class="toc-text">扫雷</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本流程"><span class="toc-number">1.1.</span> <span class="toc-text">基本流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#core"><span class="toc-number">1.1.1.</span> <span class="toc-text">core</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#格子"><span class="toc-number">1.1.2.</span> <span class="toc-text">格子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#需要哪些样式"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">需要哪些样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#格子的样式根据数据调整"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">格子的样式根据数据调整</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#extension"><span class="toc-number">1.2.</span> <span class="toc-text">extension</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#trouble"><span class="toc-number">1.3.</span> <span class="toc-text">trouble</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-data属性数组的深度监视"><span class="toc-number">1.3.1.</span> <span class="toc-text">vue data属性数组的深度监视</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按队列遍历应该“点击”的位置"><span class="toc-number">1.3.2.</span> <span class="toc-text">按队列遍历应该“点击”的位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#胜利条件与脑细胞（或者应该是troubling）"><span class="toc-number">1.3.3.</span> <span class="toc-text">胜利条件与脑细胞（或者应该是troubling）</span></a></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/03/25/base/js/ts/" title="下一篇: typescript">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/26/site/games/search-boom/">非常寥批的扫雷</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/25/base/js/ts/">typescript</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/base/js/axios/">axios</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/base/css/less/">less</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/base/html/HTML-Semantic/">HTML Semantic</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/22/tools/test/mocha/">mocha</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/tools/test/Travis-CI/">Travis CI</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/21/tools/IDE/VSCode/">Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/18/site/MockServer/">nodejs mock-server</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/site/how-to-deal-data/">how to deal data</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/base/css/bootstrap/">bootstrap</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/tools/IDE/webstorm-config/">webstorm-config</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/base/css/screen-size/">screen-size</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/node/webpack/">webpack</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/12/tools/browser/chrome-extension/">chrome插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/node/npm/">npm</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/RegularExpression/">RegularExpression</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/11/tools/markdown/">markdown</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/09/base/css/css-flex/">css-flex</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/08/site/README/">base</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/07/base/js/vue/">vue's accumulation</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/05/tools/git-remote/">Git Remote</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/cloud/docker-container-ip/">Docker Container IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/README/">How this work</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 Chreem
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
