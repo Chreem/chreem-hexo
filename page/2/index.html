@@ -141,7 +141,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/axios/" style="font-size: 15px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/ip/" style="font-size: 10px;">ip</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/media/" style="font-size: 15px;">media</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/module/" style="font-size: 10px;">module</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/settings/" style="font-size: 10px;">settings</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/syntax/" style="font-size: 20px;">syntax</a> <a href="/tags/test/" style="font-size: 15px;">test</a> <a href="/tags/travis-ci/" style="font-size: 10px;">travis-ci</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 20px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a>
+                        <a href="/tags/RegExp/" style="font-size: 10px;">RegExp</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/axios/" style="font-size: 15px;">axios</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/commander/" style="font-size: 10px;">commander</a> <a href="/tags/container/" style="font-size: 10px;">container</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/extension/" style="font-size: 10px;">extension</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/flex/" style="font-size: 10px;">flex</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/ip/" style="font-size: 10px;">ip</a> <a href="/tags/less/" style="font-size: 10px;">less</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/media/" style="font-size: 15px;">media</a> <a href="/tags/mocha/" style="font-size: 10px;">mocha</a> <a href="/tags/module/" style="font-size: 15px;">module</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/npm/" style="font-size: 15px;">npm</a> <a href="/tags/publish/" style="font-size: 10px;">publish</a> <a href="/tags/queue/" style="font-size: 10px;">queue</a> <a href="/tags/rest/" style="font-size: 10px;">rest</a> <a href="/tags/settings/" style="font-size: 10px;">settings</a> <a href="/tags/ssh/" style="font-size: 10px;">ssh</a> <a href="/tags/syntax/" style="font-size: 20px;">syntax</a> <a href="/tags/test/" style="font-size: 15px;">test</a> <a href="/tags/travis-ci/" style="font-size: 10px;">travis-ci</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 20px;">vue</a> <a href="/tags/webpack/" style="font-size: 20px;">webpack</a> <a href="/tags/webstorm/" style="font-size: 10px;">webstorm</a> <a href="/tags/zsh/" style="font-size: 10px;">zsh</a> <a href="/tags/箭头函数/" style="font-size: 10px;">箭头函数</a>
                     </div>
                 </section>
                 
@@ -216,6 +216,158 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-site/MockServer" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/18/site/MockServer/" class="article-date">
+      <time datetime="2017-03-17T15:53:18.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/18/site/MockServer/">nodejs mock-server</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Build-Nodejs-based-Mock-Server"><a href="#Build-Nodejs-based-Mock-Server" class="headerlink" title="Build Nodejs based Mock-Server"></a>Build Nodejs based Mock-Server</h1><p>简而言之就是，后端还没写可以先拿这玩意来顶一顶。当然多得是办法能实现，不过图省事就用express了，数据就用*.json保存，假装自己有个mongodb。据说今后很可能经常用，先写好以备不时之需。<br>自己写的一玩意chr-mock<br><a href="https://www.npmjs.com/package/chr-mock"><img src="https://img.shields.io/npm/v/chr-mock.svg?style=flat-square" alt="chr-mock"></a> <a href="https://travis-ci.org/Chreem/chr-mock"><img src="https://img.shields.io/travis/Chreem/chr-mock.svg?style=flat-square" alt="Travis"></a> <a href="https://www.npmjs.com/package/chr-mock"><img src="https://img.shields.io/npm/l/chr-mock.svg?style=flat-square" alt="npm"></a></p>
+<h2 id="environment"><a href="#environment" class="headerlink" title="environment"></a>environment</h2><h3 id="npm-init"><a href="#npm-init" class="headerlink" title="npm init"></a>npm init</h3><p>这个……没啥可说的</p>
+<h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>自定义命令需要在package.json里修改bin属性，同样因为npm命令行，还需要全局安装提示：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"preferGlobal"</span>: <span class="literal">true</span>,</div><div class="line"><span class="string">"bin"</span>: &#123;</div><div class="line">    <span class="string">"chr"</span>: <span class="string">"./index.js"</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+<p>或者装好后添加至全局：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> chr-mock</div><div class="line">~/chr-mock$ npm link</div></pre></td></tr></table></figure>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a><a class="article-category-link" href="/categories/site/node/">node</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/commander/">commander</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/18/site/MockServer/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-site/how-to-deal-data" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/17/site/how-to-deal-data/" class="article-date">
+      <time datetime="2017-03-17T01:42:33.000Z" itemprop="datePublished">2017-03-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/17/site/how-to-deal-data/">how to deal data</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h1><h2 id="mock-server"><a href="#mock-server" class="headerlink" title="mock server"></a>mock server</h2><p>简单几步就能完成：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="bullet">1. </span>拿node/nginx或者别的啥来自己写个后端RESTful实现  这里就拿node举栗了</div><div class="line"><span class="bullet">2. </span>npm上找个json的操作库，然后抄段增删改查</div><div class="line"><span class="bullet">3. </span>express或者别的来响应请求</div><div class="line"><span class="bullet">4. </span>运行发布</div></pre></td></tr></table></figure>
+<p>搭建步骤  移步<a href="https://hexo.chreem.xyz/2017/03/18/site/MockServer/">“nodejs mock-server”</a></p>
+<h2 id="directory-for-now"><a href="#directory-for-now" class="headerlink" title="directory for now"></a>directory for now</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">site                            //站点根目录</div><div class="line">├── lib                         //各种数据处理</div><div class="line">│   ├── data-structure          //如名。。。除了提供基本数据结构外还有各种转换</div><div class="line">│   │   └── index.js                //应该是和数据沾边的都会在这</div><div class="line">│   └── service                 //后端数据交互</div><div class="line">│       ├── index.js            //提供请求方法，默认由后端获取</div></pre></td></tr></table></figure>
+<h3 id="lib-service-index-js"><a href="#lib-service-index-js" class="headerlink" title="/lib/service/index.js"></a>/lib/service/index.js</h3><ol>
+<li><p>get<br> 说多少不如贴段代码<br> 顺带……格式用qs调整纯属偷懒</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> axios...</div><div class="line">    , qs...;</div><div class="line"><span class="keyword">let</span> SITE_URL = <span class="string">'http://127.0.0.1:8080/'</span>;</div><div class="line"><span class="comment">/**</div><div class="line">  * 获取数据，详情参照chr-mock</div><div class="line">  * @returns &#123;&#123;&#125;&#125; 所需数据</div><div class="line">  */</span></div><div class="line">getData(url = <span class="string">''</span>, params = &#123;&#125;)&#123;</div><div class="line">    <span class="keyword">let</span> data = <span class="string">''</span>;</div><div class="line">    <span class="keyword">if</span> (params.toString() !== <span class="string">'&#123;&#125;'</span>) &#123;</div><div class="line">        data = <span class="string">'?'</span> + qs.stringify(params);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> axios.get(SITE_URL + url + data)</div><div class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123; <span class="keyword">return</span> res.data; &#125;)</div><div class="line">        .catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.error(error);</div><div class="line">            <span class="keyword">return</span> &#123;&#125;;</div><div class="line">        &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>post/patch 差不多不多说</p>
+</li>
+<li>delete 详情移步mock server</li>
+</ol>
+<h2 id="old"><a href="#old" class="headerlink" title="old"></a><del>old</del></h2><p>目前已移步mock server<br>把数据获取和处理单列一项，据说能弱耦合（<del>神特喵弱，都是自己用的</del>），目录如下：</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">site                            //站点根目录</div><div class="line">├── lib                         //各种数据处理</div><div class="line">│   ├── data-structure          //如名。。。除了提供基本数据结构外还有各种转换</div><div class="line">│   │   └── index.js                //应该是和数据沾边的都会在这</div><div class="line">│   └── service                 //后端数据交互及本地模拟</div><div class="line">│       ├── backend.js                  //*退役       从后端获取</div><div class="line">│       ├── data.test.json              //*退役       本地模拟数据</div><div class="line">│       ├── index.js            //提供请求方法，默认由后端获取</div><div class="line">│       └── test.js                     //*退役       从本地获取</div></pre></td></tr></table></figure>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/site/">site</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/axios/">axios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rest/">rest</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/17/site/how-to-deal-data/#more">大航海 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-base/css/bootstrap" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -318,7 +470,8 @@
       
           
               <h1 id="Base"><a href="#Base" class="headerlink" title="Base"></a>Base</h1><p>平时用的相当多的除了vscode就是webstorm了，当然不仅限于webstorm<br>本篇主要还是积累一些平时用上用不上的settings修改，毕竟把工具调教顺手还是相当有必要的</p>
-<h2 id="vue-extension"><a href="#vue-extension" class="headerlink" title="vue extension"></a>vue extension</h2><p>vue扩展需另行安装（<del>明明angular react都直接有了，就不能再厚道一点？</del>）</p>
+<h2 id="vue-extension"><a href="#vue-extension" class="headerlink" title="vue extension"></a><del>vue extension</del></h2><p>2017.1版已加入vue支持.  </p>
+<h3 id="old"><a href="#old" class="headerlink" title="old"></a>old</h3><p>vue扩展需另行安装（<del>明明angular react都直接有了，就不能再厚道一点？</del>）</p>
 <ol>
 <li>安装<br> File–&gt;Settings–&gt;Plugins–&gt;Install JetBrains plugins<br> 搜vue.js，install，reboot webstorm……OK <del>好了，关机睡觉。。。</del></li>
 <li>配置Vue模板<br> 依然settings，–&gt;Editor–&gt;File Types–&gt;Vue.js Template的Registered Patterns里是否包含了*.vue<br> 若没有加上即可<br> 然后在–&gt;Editor–&gt;File and Code Templates下添加Vue File，具体如下：<br> <img src="https://cloud.githubusercontent.com/assets/12951147/23892069/19d57a8a-08d4-11e7-8690-3ec3a9c83be8.png" alt="image"></li>
@@ -432,6 +585,165 @@
 
 
   
+    <article id="post-tools/oh-my-zsh" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/14/tools/oh-my-zsh/" class="article-date">
+      <time datetime="2017-03-14T01:55:25.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/tools/oh-my-zsh/">oh-my-zsh安装及配置指北</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h1><p>命令行下一个炒鸡好用的zsh加强版,不出意外linux已经带有zsh:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zsh --version</div></pre></td></tr></table></figure>
+<p>那么安装也会很简单:<code>sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</code>  </p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zsh/">zsh</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-site/node-list" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/14/site/node-list/" class="article-date">
+      <time datetime="2017-03-14T01:55:25.000Z" itemprop="datePublished">2017-03-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/14/site/node-list/">node</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="node-module-list"><a href="#node-module-list" class="headerlink" title="node module list"></a>node module list</h1><p>a list about node modules that were used</p>
+<h2 id="running"><a href="#running" class="headerlink" title="running"></a>running</h2><ul>
+<li>vue</li>
+<li>vue-router</li>
+</ul>
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><ul>
+<li>express   nothing to say</li>
+<li>rimraf    便利的删除文件夹工具</li>
+<li>cross-env   提供不同系统的相同命令支持</li>
+<li>webpack-hot-middleware<br>  无需webpack-dev-server也能hot-reload  </li>
+<li>webpack-dev-middleware  </li>
+<li>serve-favicon favicon没啥可解释的</li>
+<li>compression   提供诸如gzip压缩功能</li>
+<li><p>vue-server-renderer<br>  vue的ssr支持,第二个参数可选传入一个对象并包含例如template,cache等:  </p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> vueSSR = <span class="built_in">require</span>(<span class="string">'vue-server-renderer'</span>)</div><div class="line">    renderer = vueSSR.createBundleRenerer(bundle,&#123;</div><div class="line">        <span class="attr">template</span>:fs.readFileSync(<span class="string">'....html'</span>),</div><div class="line">        <span class="attr">cache</span>:<span class="built_in">require</span>(<span class="string">'lru-cache'</span>)(&#123;</div><div class="line">            <span class="attr">max</span>:...,</div><div class="line">            <span class="attr">maxAge</span>:...</div><div class="line">        &#125;)</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>lru-cache 看名字就知道用来缓存的,用于vue-server-renderer的各个create函数create*Renerer()的第二个参数,设置缓存对象</p>
+</li>
+<li>vuex-router-sync  将vue-router信息注入vuex</li>
+<li>memory-fs 如名</li>
+</ul>
+<h2 id="build"><a href="#build" class="headerlink" title="build"></a>build</h2><ul>
+<li>path</li>
+<li>webpack</li>
+<li>autoprefixer  自动完善css的浏览器支持</li>
+<li>html-webpack-plugin   补全根据hash生成的js文件至模板</li>
+<li>vue-ssr-webpack-plugin    如名</li>
+<li>sw-precache-webpack-plugin    service worker支持</li>
+</ul>
+<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><ul>
+<li>blueimp  用于webpack插件html-webpack-plugin的模板中</li>
+</ul>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/node/">node</a><a class="article-category-link" href="/categories/node/site/">site</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/module/">module</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-node/webpack" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -459,10 +771,43 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>Something happend to me…when I was young.</p>
+        <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><ol>
+<li><p>devtool</p>
 <ul>
-<li>webpack rules &amp; loaders<br>  So simple changed:<br>  webpack 2.0+将loaders替换为rules，但loaders依然提供部分支持</li>
+<li>eval</li>
+<li>hidden</li>
+<li><p>inline</p>
+</li>
+<li><p>…source-map</p>
+</li>
+<li>cheap-…-source-map</li>
+<li>cheap-modle-…-source-map</li>
 </ul>
+</li>
+<li>performance<br> 块过大提示,参考: <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">performance: &#123;</div><div class="line">    <span class="attr">maxEntrypointSize</span>: <span class="number">300000</span>,</div><div class="line">    <span class="attr">hints</span>: isProd ? <span class="string">'warning'</span> : <span class="literal">false</span></div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><ol>
+<li><p>html-webpack-plugin<br> 主要用于按照模板替换相关引用部分,如webpack的output部分filename配置为<code>[name].[chunkhash].js</code>,而hash每次显然不一样,为了能正常获取而使用该插件,在模板中的link/script稍作配置即可<br> 通常给模板即可,其中使用blueimp模板引擎:</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> HtmlWebpackPlugin=<span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</div><div class="line">...</div><div class="line">new HtmlWebpackPlugin(&#123;</div><div class="line">    <span class="attr">template</span>: <span class="string">'src/index.template.html'</span></div><div class="line">&#125;),</div><div class="line">...</div></pre></td></tr></table></figure>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">chunk</span> <span class="attr">of</span> <span class="attr">webpack.chunks</span>) &#123;</span></div><div class="line">    <span class="attr">for</span> (<span class="attr">var</span> <span class="attr">file</span> <span class="attr">of</span> <span class="attr">chunk.files</span>) &#123;</div><div class="line">        <span class="attr">if</span> (<span class="attr">file.match</span>(/\<span class="attr">.</span>(<span class="attr">js</span>|<span class="attr">css</span>)$/)) &#123; %&gt;</div><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"&lt;%= chunk.initial?'preload':'prefetch' %&gt;"</span> <span class="attr">href</span>=<span class="string">"&lt;%= htmlWebpackPlugin.files.publicPath + file %&gt;"</span> <span class="attr">as</span>=<span class="string">"&lt;%= file.match(/\.css$/)?'style':'script' %&gt;"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%</span> &#125;&#125;&#125; %&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>CommonsChunkPlugin<br> 通常用来整合所使用的库</p>
+</li>
+<li><p>sw-precache-webpack-plugin<br> 用于生成service worker file,常用配置:</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> SWPrecachePlugin=<span class="built_in">require</span>(<span class="string">'sw-precache-webpack-plugin'</span>);</div><div class="line">...</div><div class="line">new SWPrecachePlugin(&#123;</div><div class="line">    <span class="attr">cacheId</span>:<span class="string">'项目名称'</span>,</div><div class="line">    <span class="attr">filename</span>:<span class="string">'生成的用于sw的文件名'</span>,</div><div class="line">    <span class="attr">dontCacheBustUrlsMatching</span>:<span class="regexp">/./</span>   不添加缓存超时的文件,/./即均不添加超时.因chunkhash已作为版本控制方式,因此无需使用超时头</div><div class="line">    staticFileGlobsIgnorePatterns:<span class="regexp">/^正则$/</span>    正则匹配不进行预缓存的文件</div><div class="line">&#125;),</div></pre></td></tr></table></figure>
+</li>
+<li><p>friendly-errors-webpack-plugin  如名,nothing to say.  </p>
+</li>
+<li>vue-ssr-webpack-plugin<br> 用于生成vue-ssr-bundle.json,配合<code>vue-server-renderer.createBundleRenderer(vue-ssr-bundle.json)</code>使用: <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> bundle = <span class="built_in">require</span>(<span class="string">'./dist/vue-ssr-bundle.json'</span>);</div><div class="line">         ... = <span class="built_in">require</span>(<span class="string">'vue-server-renderer'</span>).createBundleRenderer(bundle)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="problem"><a href="#problem" class="headerlink" title="problem"></a>problem</h2><p>Something happend to me…when I was young.</p>
+<h3 id="webpack-rules-amp-loaders"><a href="#webpack-rules-amp-loaders" class="headerlink" title="webpack rules &amp; loaders"></a>webpack rules &amp; loaders</h3><p>So simple changed:<br>webpack 2.0+将loaders替换为rules，但loaders依然提供部分支持</p>
+<h3 id="Node模块中-webpack打包后-dirname"><a href="#Node模块中-webpack打包后-dirname" class="headerlink" title="Node模块中 webpack打包后__dirname==/"></a>Node模块中 webpack打包后__dirname==/</h3><p>对于node环境，webpack有些特殊配置需要指明，且node本身的一些模块也不需要webpack一起给打包上<br>以及为了正常使用<strong>dirname/</strong>filename：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> nodeModules = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="comment">//过滤node模块</span></div><div class="line">fs.readdirSync(<span class="string">'node_modules'</span>)</div><div class="line">    .filter(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> [<span class="string">'.bin'</span>].indexOf(x) === <span class="number">-1</span>;</div><div class="line">    &#125;)</div><div class="line">    .forEach(<span class="function"><span class="keyword">function</span> (<span class="params">mod</span>) </span>&#123;</div><div class="line">        nodeModules[mod] = <span class="string">'commonjs '</span> + mod;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports=&#123;</div><div class="line">    <span class="attr">output</span>:&#123;</div><div class="line">        ...</div><div class="line">        libraryTarget:<span class="string">'commonjs'</span>        <span class="comment">//需配置此项,否则需在externals的每一项前加上commonjs</span></div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">    target: <span class="string">'node'</span>,</div><div class="line">    <span class="attr">node</span>:&#123;</div><div class="line">        <span class="attr">__dirname</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">__filename</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//old   externals: nodeModules,</span></div><div class="line">    externals: <span class="built_in">Object</span>.keys(<span class="built_in">require</span>(<span class="string">'../package.json'</span>).dependencies)</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="UglifyJs-ES6"><a href="#UglifyJs-ES6" class="headerlink" title="UglifyJs ES6"></a>UglifyJs ES6</h3><p>对node模块的压缩而言，webpack@2.3.2的uglifyjs插件还是es5的，需在项目下安装es6版本uglifyjs <a href="https://github.com/mishoo/UglifyJS2/commits/harmony" target="_blank" rel="external">Harmony</a><br>浏览器，反正都要用babel转义成es5也就没啥影响了  </p>
+<h3 id="html-webpack-plugin-lt-gt-模板未替换"><a href="#html-webpack-plugin-lt-gt-模板未替换" class="headerlink" title="html-webpack-plugin &lt;% %&gt;模板未替换"></a>html-webpack-plugin &lt;% %&gt;模板未替换</h3><p>根据其github的<a href="https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md" target="_blank" rel="external">template-option</a>给出的问题列表,正好包含之前使用的html-loader导致冲突所以替换失败</p>
 
       
       
@@ -620,277 +965,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/03/11/node/npm/#more">大航海 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-tools/RegularExpression" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/11/tools/RegularExpression/" class="article-date">
-      <time datetime="2017-03-10T15:39:19.000Z" itemprop="datePublished">2017-03-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/11/tools/RegularExpression/">RegularExpression</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegExp/">RegExp</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-tools/markdown" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/11/tools/markdown/" class="article-date">
-      <time datetime="2017-03-10T15:38:18.000Z" itemprop="datePublished">2017-03-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/11/tools/markdown/">markdown</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Markdown-syntax"><a href="#Markdown-syntax" class="headerlink" title="Markdown syntax"></a>Markdown syntax</h1><p>常用的MD语法汇总及当初犯下的问题总结，基础语法没啥可说的，各种符号怎么用@baidu</p>
-<h2 id="what-happend-before"><a href="#what-happend-before" class="headerlink" title="what happend before"></a>what happend before</h2><p>不规范的就不多说了，详情继续往下有链接</p>
-<ul>
-<li><p>MD009/no-trailing-spaces: Trailing spaces [Expected: 2; Actual: 1]<br>  结尾不要手痒按空格……</p>
-  <figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="section"># hehe _______(空格)</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>MD012/no-multiple-blanks: Multiple consecutive blank lines [Expected: 1; Actual: 2]<br>  行空多了呗</p>
-</li>
-<li>MD025/single-h1: Multiple top level headers in the same document<br>  当初没在意，还想着为啥Github上一级二级标题下面都会接着下划线呀……之类的</li>
-<li>MD026/no-trailing-punctuation: Trailing punctuation in header [Punctuation: ‘?’]<br>  标题不要跟标点</li>
-<li>MD032/blanks-around-lists: Lists should be surrounded by blank lines<br>  32同时会引出一个语法错误，列表内容紧接着的一行应该要但可以不用空四格。遇到没空出来，多行数据就GG，错位多次都是泪😢</li>
-</ul>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/tools/">tools</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/syntax/">syntax</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/11/tools/markdown/#more">大航海 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-base/css/css-flex" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/09/base/css/css-flex/" class="article-date">
-      <time datetime="2017-03-09T04:57:31.000Z" itemprop="datePublished">2017-03-09</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/09/base/css/css-flex/">css-flex</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="accumulation"><a href="#accumulation" class="headerlink" title="accumulation"></a>accumulation</h1><h2 id="紧贴页面底部的页脚"><a href="#紧贴页面底部的页脚" class="headerlink" title="紧贴页面底部的页脚"></a>紧贴页面底部的页脚</h2><p>使用flex会相当容易：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- index.html --&gt;</span></div><div class="line">...</div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></div><div class="line">        <span class="comment">/*...*/</span></div><div class="line">        <span class="selector-tag">body</span>&#123;</div><div class="line">            <span class="attribute">display</span>:flex;</div><div class="line">            <span class="attribute">flex-flow</span>:column;</div><div class="line">            <span class="attribute">min-height</span>:<span class="number">100vh</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.content</span>&#123; <span class="attribute">flex</span>:<span class="number">1</span>; &#125;</div><div class="line">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>content<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">footer</span>&gt;</span>footer<span class="tag">&lt;/<span class="name">footer</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">...</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/css/">css</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flex/">flex</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/09/base/css/css-flex/#more">大航海 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-site/README" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/08/site/README/" class="article-date">
-      <time datetime="2017-03-08T02:02:29.000Z" itemprop="datePublished">2017-03-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/08/site/README/">base</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="introduct-my-site"><a href="#introduct-my-site" class="headerlink" title="introduct my site"></a>introduct my site</h1><p>After all of these, I want to build a site to show my blogs or anything what I try to realize. This post is used to show a piece of my mind about site’s framework.</p>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/site/">site</a>
-    </div>
-
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2017/03/08/site/README/#more">大航海 >></a>
         </p>
       
       <div class="clearfix"></div>
