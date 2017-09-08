@@ -4,6 +4,3 @@ node_js:
 
 before_script:
   - npm i -g hexo
-
-after_script:
-  - hexo g -d
