@@ -1,5 +1,5 @@
 ---
-title: node
+title: Vue SSR stack
 date: 2017-03-14 09:55:25
 tags: [module]
 categories: [node,site]

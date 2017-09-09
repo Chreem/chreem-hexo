@@ -1,4 +1,4 @@
-# HEXO based personal blog
+# hexo based personal blog
 
 博文整得跟自己代码一个德行, 回头检查结构和分类等简直不堪入目(~~现在也好不到哪去~~), 干脆全部重整.
 

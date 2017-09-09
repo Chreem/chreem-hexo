@@ -46,7 +46,6 @@ Coveralls覆盖率测试需要用到的两个依赖: `coveralls`&`istanbul`
 附图一张:  
 ![npm](https://cloud.githubusercontent.com/assets/12951147/24762213/4c59593c-1b20-11e7-9b29-a860a3b298b5.png)
 
-
 ## 各站点配置
 
 ### Github
@@ -85,3 +84,46 @@ deploy:
 ## 编写测试用例
 
 随便写写就OK了...
+
+## SSH免密
+
+官方的github pages教程用的token, 还没尝试过(或者说没试成功)  
+SSH Key参照<http://blog.csdn.net/u012373815/article/details/53574002>  
+步骤:  
+
+```md
+1. 前置ruby-dev
+2. gem install travis
+3. 加密私钥及预配ssh_config
+4. 修改.travis.yml
+5. push测试
+```
+
+### 配置私钥
+
+```bash
+> touch/vim ssh_config
+
+Host github.com
+User git
+StrictHostKeyChecking no
+IdentityFile ~/.ssh/id_rsa
+IdentitiesOnly yes
+
+> travis login --auto
+> travis encrypt-file id_rsa --add
+# 此步之后会自动在.travis.yml上加上相应解密命令且自动生成对应环境变量
+# 但生成之后所在目录及权限均还需修改
+
+> vim .travis.yml
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_xxxxxxxxx_key -iv $encrypted_xxxxxxxxx_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+- cp ssh_config ~/.ssh/config
+- git config --global user.name "xxx"
+- git config --global user.email "xxx"
+```
