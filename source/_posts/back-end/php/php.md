@@ -12,6 +12,8 @@ windows上的nginx与php fastcgi.
 安装依赖管理
 code格式化插件
 
+<!-- more -->
+
 ## FastCGI
 
 ### Nginx

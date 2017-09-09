@@ -11,6 +11,8 @@ date: 2017-08-21 15:15:40
 |BS|hello world|
 |问题|一些阻碍hello world运行的问题|
 
+<!-- more -->
+
 ## 环境变量
 
 JAVA_HOME: `JDK目录`, 目的是将JDK下的bin目录告诉path, 以及方便配置CLASSPATH
