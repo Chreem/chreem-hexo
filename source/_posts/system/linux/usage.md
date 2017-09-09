@@ -1,3 +1,8 @@
+---
+title: Linux basic usage
+date: 2017-08-09 21:48:27
+tags: System
+---
 # how to use
 
 ## 常用命令
@@ -8,6 +13,8 @@
 |---|---|---|---|
 |用户权限|加入组|`usermod -a -G group user`||
 ||新建用户时指定组|`useradd -g group user`||
+
+<!-- more -->
 
 ## issue
 
