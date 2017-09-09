@@ -79,4 +79,4 @@ theme: landscape
 deploy:
   type: git
   repo: git@github.com:Chreem/chreem.github.io.git
-  branch: gh-pages
+  branch: master
