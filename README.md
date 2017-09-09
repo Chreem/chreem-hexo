@@ -6,7 +6,7 @@
 
 主站[github.io](https://chreem.github.io), 不过一些性能优化只能在自己站点测试.  
 整站和之前没多大区别, 依然是[hexo主机名](https://hexo.chreem.xyz)通过nginx负载至内部docker的web server上  
-去掉了之前shi一样的timing update想法, 直接用travis ci.
+去掉了之前shi一样的timing update想法, 改用travis ci
 
 ## issue
 
