@@ -15,3 +15,10 @@
 ## issue
 
 旧版保留, 新问题直接放在github的issue里
+
+## LICENSE & Thank for
+
+|name|license|
+|---|---|
+|hexo|[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/hexojs/hexo/blob/master/LICENSE)|
+|hexo-theme-apollo|[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/pinggod/hexo-theme-apollo)|
