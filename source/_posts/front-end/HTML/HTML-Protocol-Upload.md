@@ -9,6 +9,7 @@ tags: [protocol]
 目前自己正在使用的是貌似token的一套: 发起登录请求并通过验证后顺带传回客户端一坨字符串, 此后的各种请求中需将那一坨字符串附在Authorization头中, 匹配才进行后续操作.
 
 涉及字段:  
+
 |名称|Value|
 |---|---|
 |Access-Control-Allow-Credentials|true|

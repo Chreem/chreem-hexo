@@ -72,7 +72,12 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: apollo
+theme: next
+
+# live2d
+live2d:
+  model: shizuku
+  bottom: -60
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
