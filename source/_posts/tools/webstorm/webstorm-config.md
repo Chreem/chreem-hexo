@@ -9,23 +9,10 @@ categories: 环境
 平时用的相当多的除了vscode就是webstorm了，当然不仅限于webstorm  
 本篇主要还是积累一些平时用上用不上的settings修改，毕竟把工具调教顺手还是相当有必要的
 
-## ~~vue extension~~
-
-2017.1版已加入vue支持.  
-
-### old
-
-vue扩展需另行安装（~~明明angular react都直接有了，就不能再厚道一点？~~）
-
-1. 安装
-    File-->Settings-->Plugins-->Install JetBrains plugins  
-    搜vue.js，install，reboot webstorm……OK ~~好了，关机睡觉。。。~~
-2. 配置Vue模板
-    依然settings，-->Editor-->File Types-->Vue.js Template的Registered Patterns里是否包含了*.vue  
-    若没有加上即可  
-    然后在-->Editor-->File and Code Templates下添加Vue File，具体如下：  
-    ![image](https://cloud.githubusercontent.com/assets/12951147/23892069/19d57a8a-08d4-11e7-8690-3ec3a9c83be8.png)
-3. 安心食用
+|主要内容|
+|---|
+|修改CSS排版|
+|关闭拼写检查|
 
 <!-- more -->
 
@@ -79,3 +66,7 @@ File-->Settings-->Editor-->Code Style-->CSS-->Other，把Blank lines between blo
     .hidden-xs { display: none; }
 }
 ```
+
+## 关闭拼写检查
+
+File-->Settings-->Editor-->Inspections-->Spelling 去掉此处的√即可
