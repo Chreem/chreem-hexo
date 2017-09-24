@@ -15,7 +15,7 @@ tags: [protocol]
 |Access-Control-Allow-Credentials|true|
 |Access-Control-Allow-Headers|Accept, Authorization, Content-Type, X-Requested-With, Range|
 |Access-Control-Allow-Methods|GET,POST,PUT,PATCH,DELETE|
-|Access-Control-Allow-Origin|http://localhost:8080|
+|Access-Control-Allow-Origin|`http://localhost:8080`|
 |Authorization|xxx...|
 |Cookie|xxx...|
 |Content-Length|xxx...|

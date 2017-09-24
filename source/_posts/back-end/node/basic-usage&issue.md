@@ -1,6 +1,6 @@
 ---
 title: Node basic usage
-date: 2017-07-21 15:15:40
+date: 2017-03-21 15:15:40
 categories: node
 ---
 # Node
@@ -31,8 +31,8 @@ categories: node
     hello world!
     undefined
 
-    root@Beryllium:~/NodeCode# cat helloworld.js 
+    root@Beryllium:~/NodeCode# cat helloworld.js
     console.log("hello world");
-    root@Beryllium:~/NodeCode# node helloworld.js 
+    root@Beryllium:~/NodeCode# node helloworld.js
     hello world
     ```
