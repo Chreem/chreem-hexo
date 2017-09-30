@@ -328,7 +328,7 @@ han: false
 disqus:
   enable: true
   shortname: chreem
-  count: true
+  count: 
 
 # Hypercomments
 #hypercomments_id:

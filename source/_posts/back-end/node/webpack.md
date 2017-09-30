@@ -66,8 +66,11 @@ categories: node
     const bundle = require('./dist/vue-ssr-bundle.json');
              ... = require('vue-server-renderer').createBundleRenderer(bundle)
     ```
+6. babel-plugin-syntax-dynamic-import  
+    用于懒加载, 首此见于[vue-router](https://router.vuejs.org/zh-cn/advanced/lazy-loading.html)  
+    如名, 动态引入
 
-## problem
+## ISSUE
 
 Something happend to me...when I was young.
 
