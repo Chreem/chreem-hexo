@@ -1,8 +1,8 @@
 ---
 title: bootstrap
 date: 2017-03-14 23:05:26
-tags: [bootstrap,media]
 categories: css
+tags: bootstrap
 ---
 # 实现
 

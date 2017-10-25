@@ -1,8 +1,8 @@
 ---
 title: PHP
 date: 2017-03-01
-tags: [composer,cgi]
-categories: 环境
+categories: php
+tags: usage
 ---
 # php 相关环境
 

@@ -1,7 +1,8 @@
 ---
 title: js issue
 date: 2017-09-25 17:03:43
-tags:
+categories: js
+tags: usage
 ---
 # js问题合集
 

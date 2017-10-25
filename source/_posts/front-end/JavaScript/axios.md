@@ -1,8 +1,8 @@
 ---
 title: axios
 date: 2017-03-22 10:33:15
-tags: [axios,ajax]
 categories: js
+tags: ajax
 ---
 # axios
 

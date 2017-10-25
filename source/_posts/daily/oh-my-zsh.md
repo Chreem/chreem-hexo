@@ -1,8 +1,8 @@
 ---
 title: oh-my-zsh安装及配置指北
 date: 2017-03-14 09:55:25
+categories: linux
 tags: zsh
-categories: tools
 ---
 # oh-my-zsh
 

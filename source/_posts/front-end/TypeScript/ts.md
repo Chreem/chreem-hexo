@@ -1,8 +1,8 @@
 ---
 title: typescript
 date: 2017-03-25 13:50:54
-tags: [typescript]
 categories: js
+tags: ts
 ---
 # TypeScript
 

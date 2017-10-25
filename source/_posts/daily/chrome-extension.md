@@ -1,8 +1,8 @@
 ---
 title: chrome插件推荐
 date: 2017-03-12 15:39:36
-tags: [chrome,extension]
-categories: 环境
+categories: chrome
+tags: extension
 ---
 # Chrome Extensions
 

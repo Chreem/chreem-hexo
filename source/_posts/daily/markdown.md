@@ -1,8 +1,8 @@
 ---
 title: markdown
 date: 2017-03-10 23:38:18
-tags: [markdown,syntax]
-categories: tools
+categories: markdown
+tags: usage
 ---
 # Markdown syntax
 

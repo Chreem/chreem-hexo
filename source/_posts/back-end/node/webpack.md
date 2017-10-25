@@ -1,8 +1,8 @@
 ---
 title: webpack
 date: 2017-03-14 09:55:25
-tags: [webpack,module]
 categories: node
+tags: webpack
 ---
 # accumulation
 

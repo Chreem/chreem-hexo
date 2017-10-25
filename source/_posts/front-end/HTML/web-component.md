@@ -1,7 +1,8 @@
 ---
 title: web-component
 date: 2017-09-30 17:44:40
-tags:
+categories: html
+tags: component
 ---
 # WebComponent
 

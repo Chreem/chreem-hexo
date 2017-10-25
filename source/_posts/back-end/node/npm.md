@@ -1,8 +1,8 @@
 ---
 title: npm
 date: 2017-03-11 09:55:19
-tags: [npm,publish]
 categories: node
+tags: usage
 ---
 # NPM
 
@@ -62,8 +62,12 @@ These are some of `package.json` settings, usually could get basic settings by `
     },
     ```
 
-## trouble
+## ISSUE
 
 ### npm提示 XXX No repository field
 
 好吧，提示都这么明显了，参考上文***repository***
+
+### 安装webpack等 出现permission denied
+
+`--unsafe-perm`

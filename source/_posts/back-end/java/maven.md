@@ -1,7 +1,8 @@
 ---
 title: Maven
 date: 2017-03-21 15:15:40
-tags: java
+categories: java
+tags: maven
 ---
 # Maven
 

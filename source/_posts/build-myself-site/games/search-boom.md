@@ -1,8 +1,8 @@
 ---
 title: 非常寥批的扫雷
 date: 2017-03-26 09:04:33
-tags: [vue,queue]
-categories: [games]
+categories: games
+tags: vue
 ---
 # 扫雷
 

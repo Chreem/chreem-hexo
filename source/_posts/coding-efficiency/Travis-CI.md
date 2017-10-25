@@ -1,8 +1,8 @@
 ---
 title: Travis CI + Coveralls
 date: 2017-03-21 15:15:40
-tags: [test,travis-ci]
-categories: 环境
+categories: ci
+tags: usage
 ---
 # Travis-CI + Coveralls 自动测试发布
 

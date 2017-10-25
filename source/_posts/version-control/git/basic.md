@@ -1,7 +1,8 @@
 ---
 title: Git basic usage
 date: 2017-03-09 21:48:27
-tags:
+categories: git
+tags: usage
 ---
 # git
 

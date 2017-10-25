@@ -1,7 +1,8 @@
 ---
 title: HTML Protocol Authorization&Upload
 date: 2017-09-21 17:57:04
-tags: [protocol]
+categories: html
+tags: protocol
 ---
 # html协议认证及上传相关字段
 

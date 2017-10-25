@@ -1,8 +1,8 @@
 ---
 title: less
 date: 2017-03-22 10:09:20
-tags: [less,webpack]
 categories: css
+tags: less
 ---
 # less syntax carding
 

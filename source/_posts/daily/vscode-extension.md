@@ -1,8 +1,8 @@
 ---
 title: Visual Studio Code 插件及使用集锦
 date: 2017-03-21 15:15:18
-tags: [vscode,extensions,vue]
-categories: 环境
+categories: vscode
+tags: extension
 ---
 # Introduction
 

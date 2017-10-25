@@ -1,8 +1,8 @@
 ---
 title: webstorm-config
 date: 2017-03-14 16:25:32
-tags: [webstorm,settings]
-categories: 环境
+categories: webstorm
+tags: usage
 ---
 # Base
 

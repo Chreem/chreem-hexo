@@ -1,8 +1,8 @@
 ---
 title: mocha
 date: 2017-03-22 10:00:14
-tags: [test,mocha]
-categories: tools
+categories: [node,test]
+tags: usage
 ---
 # Mocha test tools
 

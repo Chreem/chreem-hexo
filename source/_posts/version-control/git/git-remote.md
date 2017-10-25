@@ -1,8 +1,8 @@
 ---
 title: Git Remote
 date: 2017-03-05
-tags: [git,ssh]
-categories: tools
+categories: git
+tags: remote
 ---
 # Git remote
 

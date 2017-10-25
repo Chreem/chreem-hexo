@@ -1,8 +1,8 @@
 ---
 title: vue's accumulation
 date: 2017-03-07 21:14:01
-tags: [npm,webpack,vue]
 categories: js
+tags: vue
 ---
 # vue family
 

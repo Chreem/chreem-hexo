@@ -1,8 +1,8 @@
 ---
 title: nodejs mock-server
 date: 2017-03-17 23:53:18
-tags: [commander,express]
-categories: [site,node]
+categories: server
+tags: mock
 ---
 # Build Nodejs based Mock-Server
 
