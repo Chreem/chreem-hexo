@@ -1,0 +1,146 @@
+---
+title: VPS setup
+date: 2017-11-13 13:07:49
+categories: server
+tags: site
+---
+# VPS各种基础服务
+
+正巧最近准备换VPS, 倒腾一下自己用了哪些东西, 万一下次要换不用到处找贴  
+(顺带安利Vultr, 新泽西州2.5$/m的节点油管4k完全不卡, 强无敌)  
+
+整理下顺序:
+
+1. VPS页绑定SSH Key以及防火墙实例, 默认放开80/443/3389/5432端口, 后续有需要再追加
+2. 修改SSH端口 port:5432
+3. [开启BBR加速, SS port:3389](#RDP)
+4. [Nginx](#Nginx)
+5. [docker(虚拟机, 因为还没去看更高级的功能😭)](#Docker)
+6. 域名商页面修改A记录
+
+<!-- more -->
+
+## 各种服务
+
+绑定实例放开端口没啥可说的, SSH端口直接`vi /etc/ssh/sshd_config`下找到`Port 22`改掉就好  
+修改域名记录也无非改改对应的VPS IP而已
+
+### RDP
+
+没啥可介绍的, 这破锅下都该会  
+此前各种FreeGate, GAE, SQSX都多少用过, 果然还是SS最好用, 备选之一v2ray
+
+1. linux内核版本≥4.9
+
+    ```bash
+    > uname -r                                          # 查看内核版本
+    4.4.0-57-generic
+    > apt-cache search linux-image                      # 查看可下载的内核
+    > apt-get install linux-images-4.10.0-21-generic
+    > apt-get remove linux-images-4.4.0-57-generic
+    > reboot
+    ```
+
+2. 启用bbr
+
+    ```bash
+    > vi /etc/sysctl.conf                   # 在最后加上:
+    net.core.default_qdisc=fq
+    net.ipv4.tcp_congestion_control=bbr
+    > sysctl -p                             # 保存退出并执行此条
+    > lsmod | grep bbr                      # 查看是否有类似如下输出
+    tcp_bbr                20480  3
+    ```
+
+3. 服务
+
+    ```bash
+    > apt-get install rdp(远程滑稽桌面)
+    > vi rdpserver.json
+    {
+        "server" : "vps的ip",              // 不能为0.0.0.0
+        "server_port" : 想使用的端口,       // 3389, 配置远程桌面呀(滑稽
+        "local_address" : "127.0.0.1",
+        "local_port" : 1080,
+        "password" : "如名",
+        "timeout" : 300,
+        "method" : "加密方式",              // 通常为aes-256-cfb
+        "fast_open" : false
+    }
+    > rdpserver -c rdpserver.json start     # 运行服务
+    > nohup xxx(rdpserver xxx) &            # 或nohup后台运行
+    ```
+
+### Nginx
+
+1. gzip, 去掉注释即可
+
+2. 常用配置
+
+    上传证书后在对应页面下配置:
+
+    ```bash
+    # 反向代理配置
+    upstream site{
+        server 192.168.1.20:3000;
+    }
+
+    # 80端口转发至443
+    server{
+        listen 80;
+        server_name 域名;
+        rewrite ^(.*)$ https://$server_name$1 permanent;
+    }
+
+    server {
+        listen 443;
+        server_name 域名;
+
+        # 静态资源配置
+        root /var/www/html;
+        index index.html;
+        error_page 403 404 = /error.json;
+        location / {
+        }
+
+        # 反向代理配置(内部若使用https需对应修改, 不过正常情况应该不会...)
+        location / {
+            proxy_pass http://site;
+        }
+
+        # 资源缓存
+        location ~* \.(ico|gif|jpg|jpeg|png|js|css|txt|xml|swf|wav|ttf)$ {
+            proxy_pass http://site;     # 视情况添加
+            access_log   off;
+            expires      3d;
+        }
+
+        # 证书配置
+        ssl on;
+        ssl_certificate .crt的路径;
+        ssl_certificate_key .key的路径;
+    }
+    ```
+
+3. 运行中的虚拟站点
+
+内部各服务跑在192.168.1.0/24段的docker容器中
+|说明|[docker IP:端口]|服务类型|主机名或作用|
+|---|---|---|:---:|
+|chreem-site|192.168.1.20:3000|node/express|🔑www|
+|static|-|nginx server|🔑static|
+|raspberry-site/server|192.168.1.21:4000|node/express|api|
+|raspberry-site/site|192.168.1.22:80|node/http-server|raspberry|
+说明: 🔑:HTTPS
+
+`/var/www/html`存放各种用不了或没CDN的资源
+
+### Docker
+
+更高级的功能待日后研究  
+使用nginx反向代理故无需使用`-p 物理端口:容器端口`
+
+1. 创建自定义网络 `docker network create --subnet=192.168.1.0/24 SelfNet`
+2. 运行容器并分配IP `docker run xxx -v 物理路径:容器内路径 --network SelfNet --ip 192.168.1.x 镜像名`
+3. 进入运行中的容器 `docker exec -it 容器名 bash`
+4. 离开容器不中断运行 `ctrl + p => ctrl + q`

@@ -2,7 +2,7 @@
 title: raspberry-site
 date: 2017-10-29 18:12:29
 categories: server
-tags: raspberry
+tags: site
 ---
 # Raspberry Site
 
@@ -21,7 +21,7 @@ tags: raspberry
     之前用node fs象征性的写了写, 通过设置树莓派系统暴露出的/sys/gpio接口来控制  
     然而在看了[别人家](https://github.com/jperkin/node-rpio)通过bcm2835的c文件直接对内存操作, 瞬间觉得自己就是个lowb... 其README.md也给出了测试效果. 不过文件操作被内存完爆也在情理之中
 
-    rpio, express, socket.io-client
+    rpio, express, socket.io
 
 3. 上述的配套UI
 
@@ -64,8 +64,8 @@ Require all granted
 
 #### 问题
 
-但也有副作用, 不能像express通过`res.header('Access-Control-Allow-Origin', req.get('origin'))`的野路子来设置Origin, 也可以直接拿数组当黑白名单, 这也是为何只拿来放静态资源的原因之一. 而且apache2的`*`遇上session会比较蛋疼  
-~~反正我也遇不上~~
+但也有副作用, 不能像express通过`res.header('Access-Control-Allow-Origin', req.get('origin'))`的野路子来设置Origin, 更不能直接拿数组当黑白名单, 这也是为何我只拿来放静态资源的原因之一. 而且apache2的`*`遇上session会比较蛋疼  
+~~翻译成白话就是: 我不会...  反正也遇不上~~
 
 ### 树莓派控制脚本
 

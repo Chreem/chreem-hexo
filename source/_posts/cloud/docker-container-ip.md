@@ -6,7 +6,7 @@ tags: docker
 ---
 # Default of Docker Network
 
-Usually by `apt-get install docker.io` (~~or any other way~~) to get docker has it's own network config: 
+Usually by `apt-get install docker.io` (~~or any other way~~) to get docker has it's own network config:
 
 > docker0,172.17.0.0/16
 
@@ -36,7 +36,7 @@ After I [baidu.com](https://www.baidu.com), should use `--ip X.X.X.X` assign con
 According to baidu, docker has 4 modes network (~~with my dingding thing~~), but who let me like to use bridge mode more than physical mode.
 
 ```bash
-docker network --subnet=192.168.100.0/24 SubnetName
+docker network create --subnet=192.168.100.0/24 SubnetName
 ```
 
 then you can see a new bridge interface in config by using `$ ifconfig`
