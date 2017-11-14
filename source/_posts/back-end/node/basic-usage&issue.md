@@ -15,14 +15,24 @@ tags: usage
 
 2. install:
     ```bash
-    root@xxx# tar -zxf node-v6.2.0-linux-x64.tar.gz
+    > tar -zxf node-v6.2.0-linux-x64.tar.gz
+    # 或者
+    > xz -d xxx.tar.xz
+    > tar -xf xxx.tar
 
-    Or root@xxx# xz -d xxx.tar.xz
-    root@xxx# tar -xf xxx.tar
+    # 1. 软连接
+    > cd node-v6.2.0-linux-x64/bin
+    > ln -s /home/chengm/node-v6.2.0-linux-x64/bin/node /usr/bin/node
+    > ln -s /home/chengm/node-v6.2.0-linux-x64/bin/npm /usr/bin/npm
 
-    root@xxx# cd node-v6.2.0-linux-x64/bin
-    root@xxx:/home/chengm/node-v6.2.0-linux-x64/bin# ln -s node /usr/bin/node
-    root@xxx:/home/chengm/node-v6.2.0-linux-x64/bin# ln -s npm /usr/bin/npm
+    # 2. 或修改环境变量
+    > vi /etc/profile.d/node_env.sh
+    #!/bin/sh --this-shebang-is-just-here-to-inform-shellcheck--
+    export NODE_HOME=/usr/local/node/node-v7.3.0-linux-x64/bin
+    export PATH=$NODE_HOME:$PATH
+    > source /etc/profile
+
+    # 注: 两种方式视情况使用
     ```
 
 3. 运行测试：

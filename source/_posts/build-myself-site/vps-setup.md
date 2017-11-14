@@ -17,6 +17,7 @@ tags: site
 4. [Nginx](#Nginx)
 5. [docker(虚拟机, 因为还没去看更高级的功能😭)](#Docker)
 6. 域名商页面修改A记录
+7. [增加虚拟内存](#Virtual Memory)
 
 <!-- more -->
 
@@ -125,6 +126,7 @@ tags: site
 3. 运行中的虚拟站点
 
 内部各服务跑在192.168.1.0/24段的docker容器中
+
 |说明|[docker IP:端口]|服务类型|主机名或作用|
 |---|---|---|:---:|
 |chreem-site|192.168.1.20:3000|node/express|🔑www|
@@ -132,8 +134,6 @@ tags: site
 |raspberry-site/server|192.168.1.21:4000|node/express|api|
 |raspberry-site/site|192.168.1.22:80|node/http-server|raspberry|
 说明: 🔑:HTTPS
-
-`/var/www/html`存放各种用不了或没CDN的资源
 
 ### Docker
 
@@ -144,3 +144,19 @@ tags: site
 2. 运行容器并分配IP `docker run xxx -v 物理路径:容器内路径 --network SelfNet --ip 192.168.1.x 镜像名`
 3. 进入运行中的容器 `docker exec -it 容器名 bash`
 4. 离开容器不中断运行 `ctrl + p => ctrl + q`
+
+### Virtual Memory
+
+因购入的2.5$只有512M内存, 跑node特别是build步骤各种error 137  
+大头全在构建上, 所以只要构建成功后续部署所需的内存就不会这么大了  
+于是增加虚拟内存妄图解决  
+
+```bash
+> free -m                                           # 查看内存空间
+> df -B M                                           # 查看磁盘..
+> dd if=/dev/zero of=/.swapfile bs=1M count=1024    # 建立1G的虚存文件
+> mv .swapfile /root                                # 文件随意处置, 如移动
+> mkswap .swapfile                                  # 将文件设为交换分区
+> swapon .swapfile                                  # 启用虚拟内存
+> swapoff -v .swapfile                              # 释放....
+```
