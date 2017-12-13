@@ -1,5 +1,5 @@
 ---
-title: chrome插件推荐
+title: chrome插件
 date: 2017-03-12 15:39:36
 categories: chrome
 tags: extension
@@ -36,6 +36,10 @@ tags: extension
 
 ## Octotree
 
-打开github项目会在左侧显示项目树形结构:  
+打开github项目会在左侧显示项目树形结构
+
+## GayHub
+
+同上, 更'重'
 
 ## ... and more

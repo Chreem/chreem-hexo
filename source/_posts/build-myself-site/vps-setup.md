@@ -131,8 +131,9 @@ tags: site
 |---|---|---|:---:|
 |chreem-site|192.168.1.20:3000|node/express|🔑www|
 |static|-|nginx server|🔑static|
-|raspberry-site/server|192.168.1.21:4000|node/express|api|
-|raspberry-site/site|192.168.1.22:80|node/http-server|raspberry|
+|api|192.168.1.21:4000|node/express|🔑api|
+|raspberry-site/server|192.168.1.23:4000|node/express|raspberry-api|
+|raspberry-site/site|192.168.1.24:80|node/http-server|raspberry|
 说明: 🔑:HTTPS
 
 ### Docker
