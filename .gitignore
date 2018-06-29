@@ -7,9 +7,8 @@ public/
 .deploy*/
 
 # 工具
-**/.git
-.idea/
-.vscode/
+.idea
+.vscode
 
 # node
 package-lock.json

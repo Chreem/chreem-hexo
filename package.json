@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.3.9"
+    "version": "3.7.1"
   },
   "scripts": {
+    "start": "hexo new",
     "test": "hexo g -d"
   },
   "dependencies": {
