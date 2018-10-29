@@ -1,7 +1,8 @@
 ---
 title: docker-compose配置二维码登录环境
 date: 2018-06-29 20:33:13
-tags:
+categories: cloud
+tags: docker
 ---
 # docker-compose for QRCode Login
 
@@ -15,6 +16,8 @@ tags:
 * `nginx` 为多个服务提供反向代理
 * `redis` 暂存global login id及user login token
 * `node` 提供登录及推送登录信息
+
+<!-- more -->
 
 ## 参数说明
 
