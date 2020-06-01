@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-- 8.3
+- 10
 before_install:
 - openssl aes-256-cbc -K $encrypted_3132ff62498d_key -iv $encrypted_3132ff62498d_iv
   -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d

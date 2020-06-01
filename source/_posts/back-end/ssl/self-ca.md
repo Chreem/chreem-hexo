@@ -6,6 +6,9 @@ tags: https
 ---
 # 自签发CA证书 for HTTPS
 
+大部分教程抄来抄去，都是根证书下继续签发给某个组织的形式  
+仅做测试、规模不大时，直接签发根证书即可，无需继续下发
+
 ## Create Root CA
 
 1. 写好配置文件conf.cnf，预置SAN信息
@@ -14,7 +17,7 @@ tags: https
     # ...
 
     [ SAN ]
-    subjectAltName	= DNS:*.chreem.club,DNS:chreem.club
+    subjectAltName = DNS:*.chreem.club,DNS:chreem.club
     ```
 
 2. 生成rsa密钥

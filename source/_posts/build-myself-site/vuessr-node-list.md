@@ -30,6 +30,7 @@ a list about node modules that were used
 * compression   提供诸如gzip压缩功能
 * vue-server-renderer  
     vue的ssr支持,第二个参数可选传入一个对象并包含例如template,cache等:  
+
     ```js
     const vueSSR = require('vue-server-renderer')
         renderer = vueSSR.createBundleRenerer(bundle,{
@@ -41,6 +42,7 @@ a list about node modules that were used
         });
 
     ```
+
 * lru-cache 看名字就知道用来缓存的,用于vue-server-renderer的各个create函数create*Renerer()的第二个参数,设置缓存对象
 * vuex-router-sync  将vue-router信息注入vuex
 * memory-fs 如名

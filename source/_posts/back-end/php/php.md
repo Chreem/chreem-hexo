@@ -36,11 +36,14 @@ code格式化插件
     * 去掉php.ini的openssl模块
     * 添加插件目录`extension_dir="***/ext"`
 3. 安装[composer](https://pkg.phpcomposer.com/#how-to-install-composer),运行完毕后会在相应目录下载composer.phar
-4. 在安装composer.phar的目录新建composer.bat,内容:
+4. 【windows下】在安装composer.phar的目录新建composer.bat,内容:
+
     ```bat
     @php "%~dp0composer.phar" %*
     ```
+
 5. [可选]修改composer源
+
     ```cmd
     > composer config -g repo.packagist composer https://packagist.phpcomposer.com
     ```

@@ -1,8 +1,8 @@
 ---
 title: markdown
 date: 2017-03-10 23:38:18
-categories: markdown
-tags: usage
+categories: daily
+tags: ['usage', 'markdown']
 ---
 # Markdown syntax
 
@@ -14,13 +14,16 @@ tags: usage
 
 * MD009/no-trailing-spaces: Trailing spaces [Expected: 2; Actual: 1]
     结尾不要手痒按空格……
+
     ```md
     # hehe _______(空格)
     ```
+
 * MD012/no-multiple-blanks: Multiple consecutive blank lines [Expected: 1; Actual: 2]
     行空多了呗
 * MD025/single-h1: Multiple top level headers in the same document  
-    当初没在意，还想着为啥Github上一级二级标题下面都会接着下划线呀……之类的
+    当初没在意，还想着为啥Github上一级二级标题下面都会接着下划线呀……之类的  
+    但hexo的导航会根据一级标题做1、2、3的标记，遂关闭h1检查
 * MD026/no-trailing-punctuation: Trailing punctuation in header [Punctuation: '?']
     标题不要跟标点
 * MD032/blanks-around-lists: Lists should be surrounded by blank lines  

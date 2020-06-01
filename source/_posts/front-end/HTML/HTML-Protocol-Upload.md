@@ -28,15 +28,20 @@ tags: protocol
 
 ## 协议本身
 
-1. HTTP/1.1  
+1. HTTP/1.1
+
   持久连接Connection: keep-alive  
   管道机制: 多个资源复用一条TCP连接, 但一条连接中的资源顺序加载  
   对应上条而使用Content-Length字段  
   分块传输编码及Transfer-Encoding: chunked字段  
-  GET,POST外的如PUT,PATCH,DELETE等字段  
-2. WebSocket  
+  GET,POST外的如PUT,PATCH,DELETE等字段
+
+2. WebSocket
+
   通过HTTP/1.1握手, 相比HTTP/2的服务端推送更偏向于即时通讯
-3. HTTP/2  
+
+3. HTTP/2
+
   服务端推送, 相比HTTP/1.1客户端解析HTML再发出静态资源请求, HTTP/2可将HTML返回并主动推送静态资源
 
 ## 认证

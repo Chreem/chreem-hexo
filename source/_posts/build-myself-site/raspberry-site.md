@@ -19,7 +19,7 @@ tags: site
 2. GPIO Control
 
     之前用node fs象征性的写了写, 通过设置树莓派系统暴露出的/sys/gpio接口来控制  
-    然而在看了[别人家](https://github.com/jperkin/node-rpio)通过bcm2835的c文件直接对内存操作, 瞬间觉得自己就是个lowb... 其README.md也给出了测试效果. 不过文件操作被内存完爆也在情理之中
+    然而在看了[别人家](https://github.com/jperkin/node-rpio)通过bcm2835的c文件直接对内存操作, 瞬间觉得自己就是个lowb... 其README.md也给出了测试效果。文件操作被内存完爆也在情理之中
 
     rpio, express, socket.io
 
@@ -64,22 +64,5 @@ Require all granted
 
 #### 问题
 
-但也有副作用, 不能像express通过`res.header('Access-Control-Allow-Origin', req.get('origin'))`的野路子来设置Origin, 更不能直接拿数组当黑白名单, 这也是为何我只拿来放静态资源的原因之一. 而且apache2的`*`遇上session会比较蛋疼  
+但也有副作用, 不能像express通过`res.header('Access-Control-Allow-Origin', req.get('origin'))`的来设置Origin, 更不能直接拿数组当黑白名单, 这也是为何我只拿来放静态资源的原因之一. 而且apache2的`*`遇上session会比较蛋疼  
 ~~翻译成白话就是: 我不会...  反正也遇不上~~
-
-### 树莓派控制脚本
-
-这部分的大头还是trigger, 本来还有点头疼应该怎么做的, 不过当我按逻辑符画成一棵树后发现了些有趣的情况:  
-
-🌰栗子: (1 || (2 && 3) || 4) && 5  
-私自规定每个括号那一层的逻辑符相同  
-![origin](/images/origin.png)  
-
-* 若节点存放的是逻辑符号, 则其子节点依照该逻辑与/或
-* 每个逻辑节点的子节点最多只有一个是逻辑节点
-
-不过仅仅是这样来的话, 比如node 5=false时那前面的都白执行了, 可以在录入时将逻辑符用push, 节点用unshift, 形成下图, 这样当层节点任一不满足即终止, 最终用以判断的队列顺序为`[5, 1, 4, 2, 3]`  
-![tree-right](/images/tree-right.png)
-
-偷偷翻了好久  
-![金瓶梅](/images/data-structure.jpg)  

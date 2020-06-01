@@ -1,8 +1,8 @@
 ---
 title: webpack
 date: 2017-03-14 09:55:25
-categories: node
-tags: webpack
+categories: [node, webpack]
+tags: usage
 ---
 # accumulation
 
@@ -18,6 +18,7 @@ tags: webpack
     * cheap-modle-...-source-map
 2. performance  
     块过大提示,参考:
+
     ```js
     performance: {
         maxEntrypointSize: 300000,
@@ -25,11 +26,14 @@ tags: webpack
     },
     ```
 
+<!-- more -->
+
 ## plugins
 
 1. html-webpack-plugin  
     主要用于按照模板替换相关引用部分,如webpack的output部分filename配置为`[name].[chunkhash].js`,而hash每次显然不一样,为了能正常获取而使用该插件,在模板中的link/script稍作配置即可  
     通常给模板即可,其中使用blueimp模板引擎:
+
     ```js
     const HtmlWebpackPlugin=require('html-webpack-plugin');
     ...
@@ -38,6 +42,7 @@ tags: webpack
     }),
     ...
     ```
+
     ```html
     <% for (var chunk of webpack.chunks) {
         for (var file of chunk.files) {
@@ -45,10 +50,13 @@ tags: webpack
     <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>">
     <% }}} %>
     ```
+
 2. CommonsChunkPlugin  
     通常用来整合所使用的库
+
 3. sw-precache-webpack-plugin  
     用于生成service worker file,常用配置:
+
     ```js
     const SWPrecachePlugin=require('sw-precache-webpack-plugin');
     ...
@@ -59,13 +67,17 @@ tags: webpack
         staticFileGlobsIgnorePatterns:/^正则$/    正则匹配不进行预缓存的文件
     }),
     ```
-4. friendly-errors-webpack-plugin  如名,nothing to say.  
+
+4. friendly-errors-webpack-plugin  如名,nothing to say.
+
 5. vue-ssr-webpack-plugin  
     用于生成vue-ssr-bundle.json,配合`vue-server-renderer.createBundleRenderer(vue-ssr-bundle.json)`使用:
+
     ```js
     const bundle = require('./dist/vue-ssr-bundle.json');
              ... = require('vue-server-renderer').createBundleRenderer(bundle)
     ```
+
 6. babel-plugin-syntax-dynamic-import  
     用于懒加载, 首此见于[vue-router](https://router.vuejs.org/zh-cn/advanced/lazy-loading.html)  
     如名, 动态引入
@@ -114,6 +126,8 @@ module.exports={
 ```
 
 ### UglifyJs ES6
+
+现版本Webpack 4.0+已使用`TerserPlugin`来压缩代码
 
 对node模块的压缩而言，webpack@2.3.2的uglifyjs插件还是es5的，需在项目下安装es6版本uglifyjs [Harmony](https://github.com/mishoo/UglifyJS2/commits/harmony)  
 浏览器，反正都要用babel转义成es5也就没啥影响了  
