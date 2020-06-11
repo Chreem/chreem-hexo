@@ -5,7 +5,7 @@
   <span class="with-love">
     <i class="fa fa-{{ theme.authoricon }}"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">{{ config.author }}</span>
+  <a class="author" href="https://github.com/Chreem" target="_blank" itemprop="copyrightHolder">{{ config.author }}</a>
 
   {% if theme.post_wordcount.totalcount %}
     <span class="post-meta-divider">|</span>
@@ -20,18 +20,3 @@
     </span>
   {% endif %}
 </div>
-
-{% if theme.copyright %}
-  <div class="powered-by">{#
-  #}{{ __('footer.powered', '<a class="theme-link" href="https://hexo.io">Hexo</a>') }}{#
-#}</div>
-
-  <span class="post-meta-divider">|</span>
-
-  <div class="theme-info">{#
-  #}{{ __('footer.theme') }} &mdash; {#
-  #}<a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">{#
-    #}NexT.{{ theme.scheme }}{#
-  #}</a> v{{ theme.version }}{#
-#}</div>
-{% endif %}

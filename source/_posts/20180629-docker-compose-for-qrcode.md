@@ -1,18 +1,14 @@
 ---
 title: docker-compose配置二维码登录环境
 date: 2018-06-29 20:33:13
-categories: cloud
+categories: daily
 tags: docker
 ---
 # docker-compose for QRCode Login
 
-作为需要多个服务配合完成的二维码登录：
+恰逢技术总监问我二维码登录，有没啥想法。作为需要多个服务配合完成的服务，正好拿docker-compose写一下：
 
-每次到一个新环境都从零配置  
-？f**k all files && delete all && run away  
-: 爽到
-
-本篇以自己写的二维码登录为例廖丕介绍一下[常见配置](https://github.com/Chreem/todo-list/blob/master/qrcode-login/docker-compose.yml)
+本篇以自己写的二维码登录为例介绍一下[常见配置](https://github.com/Chreem/todo-list/blob/master/qrcode-login/docker-compose.yml)
 
 ## 所需部件
 
@@ -22,17 +18,17 @@ tags: docker
 
 <!-- more -->
 
-## 参数说明
+# 参数说明
 
 所有配置参数直接参考官方文档，某些会略微说明，不做赘述
 
-1. docker volume
+## docker volume
 
     每个容器创建时会同时创建数据卷，the same as created by docker-compose  
     不同的是单纯`docker-compose down`不会删除数据卷，需要加上`-v`参数才会连带删除数据卷  
     主动创建的外部卷依然得手动删除
 
-2. multi bridge
+## multi bridge
 
     即使看起来是路由可达，bridge模式下的多个网桥之间依然不允许通信，某个容器需要同时访问最好靠加入两个网桥，即：
 
@@ -44,16 +40,16 @@ tags: docker
         ipv4_address: 192.168.2.10
     ```
 
-3. expose
+## expose
 
     美其名曰暴露端口，但实际上即使不加这条，其他容器同样能正常访问，主要功能应该是使用`docker ps -a`时能直观看到端口吧，emmmmm...
 
-4. depends_on
+## depends_on
 
     依赖服务，如本篇`auth_server`需要用到redis暂存sid&uid，需要redis先于他启动
 
-5. build
+## build
 
     尽量不用build&Dockerfile构建，因为凭空多管理一个image反而成为累赘。不得不用build完成的复杂场景，暂时没遇到
-    
+
     使用`docker-compose down --rmi local`能同时移除build参数构建的image

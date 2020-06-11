@@ -1,20 +1,27 @@
 ---
-title: nodejs mock-server
+title: npm发布流程
 date: 2017-03-17 23:53:18
-categories: server
-tags: mock
+categories: practice
+tags: npm
 ---
-# Build Nodejs based Mock-Server
+# Publish Mock-Server to NPM
 
 图省事用的express，数据就用*.json保存，假装自己有个mongodb。  
 同时测试npm发布：  
 [![chr-mock](https://img.shields.io/npm/v/chr-mock.svg?style=flat-square)](https://www.npmjs.com/package/chr-mock) [![Travis](https://img.shields.io/travis/Chreem/chr-mock.svg?style=flat-square)](https://travis-ci.org/Chreem/chr-mock) [![npm](https://img.shields.io/npm/l/chr-mock.svg?style=flat-square)](https://www.npmjs.com/package/chr-mock)
 
-## environment
+<!-- more -->
 
-### package.json
+# 前置需求
 
-自定义命令需要在package.json里修改bin属性，同样因为npm命令行，还需要全局安装提示：
+1. 修改`package.json`
+2. `commander`命令行辅助工具
+3. `express`提供mock服务
+
+## package.json
+
+自定义命令需要在package.json里修改bin属性，增加命令执行入口  
+增加`preferGlobal`提示全局安装：
 
 ```js
     "preferGlobal": true,
@@ -30,9 +37,7 @@ $ cd chr-mock
 ~/chr-mock$ npm link
 ```
 
-<!-- more -->
-
-### [commander](https://www.npmjs.com/package/commander)
+## [commander](https://www.npmjs.com/package/commander)
 
 node命令行用  
 能很方便的配置各类参数以及自动生成帮助文档--help  
@@ -78,7 +83,7 @@ console.log('file:' + filename);
 console.log('port:' + program.port);
 ```
 
-### [express](http://www.expressjs.com.cn/)
+## [express](http://www.expressjs.com.cn/)
 
 后面要做的基本上就在这里的watch.js里写了  
 根据上面命令行拿到的文件及监听端口运行express  
@@ -113,9 +118,9 @@ module.exports = {
 2. path
 3. jsonfile
 
-## analysis
+# 解析
 
-### router match
+## 路由匹配
 
 首先要做的就是根据路由来匹配访问字段，没啥疑问应该  
 该节参考[api 路由](http://www.expressjs.com.cn/guide/routing.html)  
@@ -137,9 +142,9 @@ run(file, port){
 }
 ```
 
-## publish to npm
+# 发布至npm
 
-### 手动
+## 手动
 
 只需要简单几步就能完成……：  
 
@@ -158,13 +163,12 @@ npm i -g chr-mock
 chr watch data.json
 ```
 
-### automatically
+## 配合travis ci自动发布
 
-1. [@baidu.com](https://www.baidu.com) & 跳过第此后所有
-2. github & travis ci配置
-3. 查看完整的login token, 通常在`~/.npmrc`里
-4. Travis CI配置环境变量存入token
-5. .travis.yml添加deploy信息：
+1. github & travis ci配置
+2. 查看完整的login token, 通常在`~/.npmrc`里
+3. Travis CI配置环境变量存入token
+4. .travis.yml添加deploy信息：
 
     ```yaml
     deploy:
@@ -175,4 +179,4 @@ chr watch data.json
             branch: master
     ```
 
-6. git push
+5. git push

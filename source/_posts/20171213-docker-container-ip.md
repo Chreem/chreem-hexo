@@ -1,8 +1,8 @@
 ---
 title: Docker容器网络
 date: 2017-12-13 9:14:23
-categories: cloud
-tags: docker
+categories: knowledge
+tags: [docker, network]
 ---
 # Docker容器网络
 
@@ -32,7 +32,7 @@ public network interface    |               |  +----------172.17.0.11 |
 
 ## 自定义网络
 
-和各虚拟机大厂网络类似, 可自定义4种模式, 默认bridge (~~从没用过另外3种~~)
+和各虚拟机大厂网络类似, 可自定义4种模式, 默认bridge ~~从没用过另外3种~~
 
 ```bash
 docker network create --subnet=192.168.1.0/24 [SubnetName]      # 创建
@@ -75,4 +75,4 @@ $ docker inspect -f '{{.NetworkSettings.IPAddress}}' [ContainerID]
 
 # 注意事项
 
-1. `--ip X.X.X.X`只能在用户定义网络上指定IP而不能在默认网络上, 否则报错`only user-defined network could assign IP`
+1. `--ip X.X.X.X`只能在用户定义网络上指定IP, 默认网络只能自动分配
