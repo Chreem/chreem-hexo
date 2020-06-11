@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="npm," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Chreem's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Publish Mock-Server to NPM图省事用的express，数据就用*.json保存，假装自己有个mongodb。同时测试npm发布：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="npm发布流程">
+<meta property="og:url" content="https://chreem.github.io/2017/03/17/20170317-mock-server/index.html">
+<meta property="og:site_name" content="Chreem&#39;s Blog">
+<meta property="og:description" content="Publish Mock-Server to NPM图省事用的express，数据就用*.json保存，假装自己有个mongodb。同时测试npm发布：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.shields.io/npm/v/chr-mock.svg?style=flat-square">
+<meta property="og:image" content="https://img.shields.io/travis/Chreem/chr-mock.svg?style=flat-square">
+<meta property="og:image" content="https://img.shields.io/npm/l/chr-mock.svg?style=flat-square">
+<meta property="article:published_time" content="2017-03-17T23:53:18.000Z">
+<meta property="article:modified_time" content="2020-06-11T08:48:53.027Z">
+<meta property="article:author" content="Chreem">
+<meta property="article:tag" content="npm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.shields.io/npm/v/chr-mock.svg?style=flat-square">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chreem.github.io/2017/03/17/20170317-mock-server/"/>
+
+
+
+
+
+  <title>npm发布流程 | Chreem's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chreem's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Single dog, single dog, single all the day.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chreem.github.io/2017/03/17/20170317-mock-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chreem">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chreem's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">npm发布流程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-17T23:53:18+00:00">
+                2017-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/practice/" itemprop="url" rel="index">
+                    <span itemprop="name">practice</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Publish-Mock-Server-to-NPM"><a href="#Publish-Mock-Server-to-NPM" class="headerlink" title="Publish Mock-Server to NPM"></a>Publish Mock-Server to NPM</h1><p>图省事用的express，数据就用*.json保存，假装自己有个mongodb。<br>同时测试npm发布：<br><a href="https://www.npmjs.com/package/chr-mock" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/v/chr-mock.svg?style=flat-square" alt="chr-mock"></a> <a href="https://travis-ci.org/Chreem/chr-mock" target="_blank" rel="noopener"><img src="https://img.shields.io/travis/Chreem/chr-mock.svg?style=flat-square" alt="Travis"></a> <a href="https://www.npmjs.com/package/chr-mock" target="_blank" rel="noopener"><img src="https://img.shields.io/npm/l/chr-mock.svg?style=flat-square" alt="npm"></a></p>
+<a id="more"></a>
+
+<h1 id="前置需求"><a href="#前置需求" class="headerlink" title="前置需求"></a>前置需求</h1><ol>
+<li>修改<code>package.json</code></li>
+<li><code>commander</code>命令行辅助工具</li>
+<li><code>express</code>提供mock服务</li>
+</ol>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>自定义命令需要在package.json里修改bin属性，增加命令执行入口<br>增加<code>preferGlobal</code>提示全局安装：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"preferGlobal"</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">"bin"</span>: &#123;</span><br><span class="line">    <span class="string">"chr"</span>: <span class="string">"./index.js"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>或者装好后添加至全局：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> chr-mock</span><br><span class="line">~/chr-mock$ npm link</span><br></pre></td></tr></table></figure>
+
+<h2 id="commander"><a href="#commander" class="headerlink" title="commander"></a><a href="https://www.npmjs.com/package/commander" target="_blank" rel="noopener">commander</a></h2><p>node命令行用<br>能很方便的配置各类参数以及自动生成帮助文档–help  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/usr/bin/env node</span></span><br><span class="line"><span class="comment">// 见的比较多的应该是#!/bin/bash，此处同理</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> program = <span class="built_in">require</span>(<span class="string">'commander'</span>);</span><br><span class="line"><span class="keyword">var</span> filename;</span><br><span class="line"></span><br><span class="line">program</span><br><span class="line">    .command(<span class="string">'watch [file]'</span>)</span><br><span class="line">    .description(<span class="string">'Add a file to watch'</span>)</span><br><span class="line">    .action(<span class="function"><span class="params">file</span> =&gt;</span> &#123;</span><br><span class="line">        filename = file;</span><br><span class="line">    &#125;);</span><br><span class="line">program         <span class="comment">// 之所以单列一条而没和上面放一起是为了能正常显示帮助文档</span></span><br><span class="line">    .option(<span class="string">'-p, --port &lt;n&gt;'</span>, <span class="string">'Add port to listen, default is 8080'</span>, /^[<span class="number">1</span><span class="number">-9</span>]\d*$/, <span class="number">8080</span>);</span><br><span class="line">program.parse(process.argv);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> filename === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">    program.outputHelp();</span><br><span class="line">    process.exit(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 参数不对显示帮助文档</span></span><br><span class="line"><span class="comment">E:\Web\node\chr-mock&gt;node index.js watch</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  Usage: index [options] [command]</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  Commands:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    watch [file]  Add a file to watch</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  Options:</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    -h, --help      output usage information</span></span><br><span class="line"><span class="comment">    -p, --port &lt;n&gt;  Add port to listen, default is 8080</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'file:'</span> + filename);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'port:'</span> + program.port);</span><br></pre></td></tr></table></figure>
+
+<h2 id="express"><a href="#express" class="headerlink" title="express"></a><a href="http://www.expressjs.com.cn/" target="_blank" rel="noopener">express</a></h2><p>后面要做的基本上就在这里的watch.js里写了<br>根据上面命令行拿到的文件及监听端口运行express  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* index.js */</span></span><br><span class="line"><span class="keyword">const</span> watch = <span class="built_in">require</span>(<span class="string">'./watch.js'</span>);</span><br><span class="line">... <span class="comment">//上一步</span></span><br><span class="line">watch.run(filename, program.port);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* watch.js */</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)</span><br><span class="line">    , app = express();</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    run(file, port)&#123;</span><br><span class="line">        app.get(<span class="string">'/'</span>, (req, res)=&gt;&#123;</span><br><span class="line">            res.send(<span class="string">'hello~'</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        app.listen(port);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以及各种中间件：  </p>
+<ol>
+<li>跨域：cors</li>
+<li>解析post body：body-parser</li>
+</ol>
+<p>其他：</p>
+<ol>
+<li>url</li>
+<li>path</li>
+<li>jsonfile</li>
+</ol>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><h2 id="路由匹配"><a href="#路由匹配" class="headerlink" title="路由匹配"></a>路由匹配</h2><p>首先要做的就是根据路由来匹配访问字段，没啥疑问应该<br>该节参考<a href="http://www.expressjs.com.cn/guide/routing.html" target="_blank" rel="noopener">api 路由</a><br>数据深度不定，无法使用<code>express.Router</code>，需通过<code>url.parse(*).pathname</code>自行解析</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">run(file, port)&#123;</span><br><span class="line">    app.all(<span class="string">'*'</span>,(req, res)=&gt;&#123;</span><br><span class="line">        <span class="keyword">let</span> params = url.parse(req.originalUrl).pathname</span><br><span class="line">            .replace(<span class="regexp">/^\//</span>,<span class="string">''</span>)</span><br><span class="line">            .replace(<span class="regexp">/\/$/</span>,<span class="string">''</span>)</span><br><span class="line">            .split(<span class="string">'/'</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 参数加工处理   及各种判断</span></span><br><span class="line">        <span class="comment">// 请求分类     以及各种判断</span></span><br><span class="line">        <span class="comment">// 返回值</span></span><br><span class="line">    &#125;)</span><br><span class="line">    app.listen(port);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="发布至npm"><a href="#发布至npm" class="headerlink" title="发布至npm"></a>发布至npm</h1><h2 id="手动"><a href="#手动" class="headerlink" title="手动"></a>手动</h2><p>只需要简单几步就能完成……：  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 跳过第二步</span></span><br><span class="line"><span class="comment"># 2. 注册</span></span><br><span class="line">$ <span class="built_in">cd</span> chr-mock             <span class="comment"># 至项目目录</span></span><br><span class="line">~/chr-mock$ npm login     <span class="comment"># 登录</span></span><br><span class="line">~/chr-mock$ npm publish   <span class="comment"># 发布</span></span><br></pre></td></tr></table></figure>
+
+<p>然后就能从公有仓库下载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i -g chr-mock</span><br><span class="line">chr watch data.json</span><br></pre></td></tr></table></figure>
+
+<h2 id="配合travis-ci自动发布"><a href="#配合travis-ci自动发布" class="headerlink" title="配合travis ci自动发布"></a>配合travis ci自动发布</h2><ol>
+<li><p>github &amp; travis ci配置</p>
+</li>
+<li><p>查看完整的login token, 通常在<code>~/.npmrc</code>里</p>
+</li>
+<li><p>Travis CI配置环境变量存入token</p>
+</li>
+<li><p>.travis.yml添加deploy信息：</p>
+ <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">provider:</span> <span class="string">npm</span></span><br><span class="line">    <span class="attr">email:</span> <span class="string">$npm_login_email</span></span><br><span class="line">    <span class="attr">api_key:</span> <span class="string">$npm_token_key</span></span><br><span class="line">    <span class="attr">on:</span></span><br><span class="line">        <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git push</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Chreem
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://chreem.github.io/2017/03/17/20170317-mock-server/" title="npm发布流程">https://chreem.github.io/2017/03/17/20170317-mock-server/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/npm/" rel="tag"># npm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/26/20170326-search-boom/" rel="prev" title="扫雷">
+                扫雷 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Chreem</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Chreem" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:chreem@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Publish-Mock-Server-to-NPM"><span class="nav-number">1.</span> <span class="nav-text">Publish Mock-Server to NPM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前置需求"><span class="nav-number">2.</span> <span class="nav-text">前置需求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json"><span class="nav-number">2.1.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#commander"><span class="nav-number">2.2.</span> <span class="nav-text">commander</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#express"><span class="nav-number">2.3.</span> <span class="nav-text">express</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解析"><span class="nav-number">3.</span> <span class="nav-text">解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由匹配"><span class="nav-number">3.1.</span> <span class="nav-text">路由匹配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发布至npm"><span class="nav-number">4.</span> <span class="nav-text">发布至npm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动"><span class="nav-number">4.1.</span> <span class="nav-text">手动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配合travis-ci自动发布"><span class="nav-number">4.2.</span> <span class="nav-text">配合travis ci自动发布</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="author" href="https://github.com/Chreem" target="_blank" itemprop="copyrightHolder">Chreem</a>
+
+  
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://chreem.github.io/2017/03/17/20170317-mock-server/';
+          this.page.identifier = '2017/03/17/20170317-mock-server/';
+          this.page.title = 'npm发布流程';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chreem.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":30,"vOffset":-50},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script>
+</body>
+</html>

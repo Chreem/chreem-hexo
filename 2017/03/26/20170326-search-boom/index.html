@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vue," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Chreem's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="扫雷突发奇想就开启了自己的游戏分类，先做个简单的扫雷练练手……环境：vue-cli调试单个模块 遇到问题：  vue data属性数组的深度监视 每个格子的状态及样式 按队列遍历应该“点击”的位置 胜利条件  今后可能添加：  插旗功能 自定义难度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="扫雷">
+<meta property="og:url" content="https://chreem.github.io/2017/03/26/20170326-search-boom/index.html">
+<meta property="og:site_name" content="Chreem&#39;s Blog">
+<meta property="og:description" content="扫雷突发奇想就开启了自己的游戏分类，先做个简单的扫雷练练手……环境：vue-cli调试单个模块 遇到问题：  vue data属性数组的深度监视 每个格子的状态及样式 按队列遍历应该“点击”的位置 胜利条件  今后可能添加：  插旗功能 自定义难度">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/12951147/24328934/d27b07f4-1229-11e7-85e1-a671d9a608d5.png">
+<meta property="article:published_time" content="2017-03-26T09:04:33.000Z">
+<meta property="article:modified_time" content="2020-06-11T08:48:53.027Z">
+<meta property="article:author" content="Chreem">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cloud.githubusercontent.com/assets/12951147/24328934/d27b07f4-1229-11e7-85e1-a671d9a608d5.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chreem.github.io/2017/03/26/20170326-search-boom/"/>
+
+
+
+
+
+  <title>扫雷 | Chreem's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chreem's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Single dog, single dog, single all the day.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chreem.github.io/2017/03/26/20170326-search-boom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chreem">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chreem's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">扫雷</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-26T09:04:33+00:00">
+                2017-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/games/" itemprop="url" rel="index">
+                    <span itemprop="name">games</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="扫雷"><a href="#扫雷" class="headerlink" title="扫雷"></a>扫雷</h1><p>突发奇想就开启了自己的游戏分类，先做个简单的扫雷练练手……<br>环境：vue-cli调试单个模块</p>
+<p>遇到问题：</p>
+<ul>
+<li>vue data属性数组的深度监视</li>
+<li>每个格子的状态及样式</li>
+<li>按队列遍历应该“点击”的位置</li>
+<li>胜利条件</li>
+</ul>
+<p>今后可能添加：</p>
+<ul>
+<li>插旗功能</li>
+<li>自定义难度</li>
+</ul>
+<p><img src="https://cloud.githubusercontent.com/assets/12951147/24328934/d27b07f4-1229-11e7-85e1-a671d9a608d5.png" alt="boom"></p>
+<a id="more"></a>
+
+<h1 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h1><h2 id="core"><a href="#core" class="headerlink" title="core"></a>core</h2><p>用两个二维数组，分别存放雷的真实情况及样式情况，样式数组用于绑定至各格子<br>分别剥开了几个方法：</p>
+<ul>
+<li>初始化棋盘：<em>样式棋盘坐标大小及格子状态初始化</em></li>
+<li>雷初始化(行，列)：<br>  逻辑棋盘由样式棋盘拷贝一份副本<br>  根据雷所占百分比计算数量并初始化逻辑棋盘<br>  生成boom💣时，逻辑棋盘[行][列]位置不应该有雷</li>
+<li>计算没被点击的格子数量：单纯的遍历一遍逻辑棋盘而已</li>
+<li>查找炸弹(行，列，数组，方法)（<del>名字啥的就别在意了。。。</del>）：遍历点击位置周围8格时触发方法，不包含触边及点击位置自身</li>
+<li><strong>清除动作([确认框],[方法])</strong>：<br>  抄袭jQuery的extend判断是否深度克隆来判断是否弹出确认框<br>  执行清除动作前执行方法<br>  初始化棋盘</li>
+</ul>
+<p>主要流程：</p>
+<ul>
+<li>首次进入：初始化棋盘</li>
+<li>切换模式：<br>  将isStart作为是否弹出询问参数执行清除动作，并在初始化前设置模式<br>  把坐标也告诉格子，在格子的点击事件里返回坐标，外层统一处理</li>
+<li>显示所有炸弹(failed)：<br>  一局还没开始随便初始化雷，但初始化前需执行一遍清除动作，同样以isStart作为询问参数<br>  已开始则，检查failed是否因点到炸弹导致，主动放弃才弹出确认框<br>  <em>没啥问题就把逻辑棋盘整个替掉样式棋盘</em></li>
+<li>清除按钮：仅仅执行清除动作而已，以及若已开始则需确认*3😝</li>
+<li>点击事件：会由视图返回行列信息<br>  还没开始：清除动作雷初始化<br>  点到雷了，Boom！！！显示所有炸弹并标上一个failed，没点到就给点击位置 [ 和周围 ] 染上颜色😏，<em>以及把这些位置信息由逻辑棋盘赋给样式棋盘</em><br>  获取还没点击的格子数（当然不会把雷算进来拉🤓），若已经没有需要点的格子了就弹出Win！</li>
+</ul>
+<h2 id="格子"><a href="#格子" class="headerlink" title="格子"></a>格子</h2><p>格子本身只负责根据绑定值的变化来改变样式，并在点击事件中提交坐标即可</p>
+<h3 id="需要哪些样式"><a href="#需要哪些样式" class="headerlink" title="需要哪些样式"></a>需要哪些样式</h3><p>也就分三种情况而已，如果想和xp扫雷类似根据雷的数量调整字体颜色，加几个style然后根据雷数push相应样式入数组就完事了：</p>
+<ol>
+<li>boom!!!💣，用-1表示</li>
+<li>不是雷（显示周围雷的数量，数据需求范围<code>x∈[0,8] , x∈n</code>）</li>
+<li>不知道，-1给了雷0-8给了非雷，那么：没点过的格子应该用-2喽-，-<br> 结果某菜鸡用的===””来判断是否点过 <del>就是要增加难度</del></li>
+</ol>
+<h3 id="格子的样式根据数据调整"><a href="#格子的样式根据数据调整" class="headerlink" title="格子的样式根据数据调整"></a>格子的样式根据数据调整</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//格子根据绑定数据判断显示状态</span></span><br><span class="line"><span class="comment">//数据由主体提供，为该格子周围雷的个数</span></span><br><span class="line"><span class="comment">//默认情况该数据==='' 表示没被点过</span></span><br><span class="line">&lt;div :<span class="class"><span class="keyword">class</span></span>=<span class="string">"cls"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/其中cls为计算属性，根据传入的雷个数得出</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">    ...,</span></span><br><span class="line"><span class="regexp">    computed:&#123;</span></span><br><span class="line"><span class="regexp">        cls()&#123;</span></span><br><span class="line"><span class="regexp">            let arr = defaultClass.concat(); /</span><span class="regexp">/默认样式</span></span><br><span class="line"><span class="regexp">            if(这个格子被点了) &#123;</span></span><br><span class="line"><span class="regexp">                if(本身就是雷) &#123; arr.push(这是颗雷); &#125;</span></span><br><span class="line"><span class="regexp">                else&#123; arr.push(并不是雷并给arr带上绿帽); &#125;</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">            return arr;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &#125;,</span></span><br><span class="line"><span class="regexp">    ...</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="extension"><a href="#extension" class="headerlink" title="extension"></a>extension</h1><p>为不为扩展目前看来也就是把有可能拎出来作为参数的部分放到vue对象外而已，今后可能用上这组件时也就把这些地方换到vue.props里完事<br>还是稍微留了点后路的，万一今后闲着蛋疼=，=<br>除了上面的<code>今后可能添加</code>外：</p>
+<ul>
+<li>默认模式和各模式的默认长宽、雷的个数等</li>
+<li>获取指定范围的随机数</li>
+<li>vue专用二维数组初始化</li>
+<li>确认框</li>
+<li>检查数字范围</li>
+</ul>
+<hr>
+<ul>
+<li>数据结构——队列</li>
+</ul>
+<hr>
+<ul>
+<li><del>能否在雷初始化时就把周围8个格子数量自加而非每次点击入队前计算</del><br>  那如果概率大于0.5 初始化时先默认有雷来挖出空格子怎么办</li>
+</ul>
+<h1 id="trouble"><a href="#trouble" class="headerlink" title="trouble"></a>trouble</h1><h2 id="vue-data属性数组的深度监视"><a href="#vue-data属性数组的深度监视" class="headerlink" title="vue data属性数组的深度监视"></a>vue data属性数组的深度监视</h2><p>对Vue2而言，data下的数组深监视的前提是数组元素是对象，所以用二维数组就不好使了：<br>GG思密达：<code>[[1,2,3,4,5],[2,2,3,4,5]]</code><br>需要这样用：<code>[{0:1,1:2,...},{0:2,2:2,...}]</code><br>还好已经写好的获取部分不需要改动</p>
+<h2 id="按队列遍历应该“点击”的位置"><a href="#按队列遍历应该“点击”的位置" class="headerlink" title="按队列遍历应该“点击”的位置"></a>按队列遍历应该“点击”的位置</h2><p>一个地方周围是不是应该连带被显示的判断，无非是点下一个地儿之后这个位置雷==0就把周围8个格子入队罢了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">点下一个位置，该格子入队</span><br><span class="line">出队并获取队首的格子</span><br><span class="line"><span class="keyword">while</span>(该格子不为空)&#123;</span><br><span class="line">    计算这个格子周围多少雷</span><br><span class="line">    在逻辑棋盘中标记该格子数量</span><br><span class="line">    同样把这个格子中雷的数量标记给样式棋盘，剩下的就交给格子组件去做了</span><br><span class="line">    <span class="keyword">if</span>(周围没雷)</span><br><span class="line">        <span class="keyword">for</span>(点击位置周围的<span class="number">8</span>个格子)&#123;</span><br><span class="line">            <span class="keyword">if</span>(已点击过或已在队列中)&#123; <span class="keyword">continue</span>; &#125;</span><br><span class="line">            循环到的这个格子入队</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="胜利条件与脑细胞（或者应该是troubling）"><a href="#胜利条件与脑细胞（或者应该是troubling）" class="headerlink" title="胜利条件与脑细胞（或者应该是troubling）"></a>胜利条件与脑细胞（或者应该是troubling）</h2><p>本来计划在每次入队时已点击格子记录自加，然而因为判断方法的漏洞导致似乎有多次重复入队（(╯‵□′)╯︵┻━┻不是让他判断在队列就跳过了么），依然没想清楚为何<br>目前的做法是每次点击队列循环完事之后遍历逻辑棋盘统计没点过的位置数量，简单粗暴</p>
+<p>为图省事队列用的数组，出队则是<code>arr=arr.slice(1)</code><br>仔细想了想，队列保存和出队方式改改的可能性：<br>保留一个游标保存当前指向的元素下标，出队时返回该下标元素然后下标++而不改变原有数组<br>while(格子不为空)中使用find就不会漏掉元素了，说不定还能顺便保存点击记录<br><del>不过岂不是徒增队列长度？得不偿失？还是简单粗暴好了</del></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Chreem
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://chreem.github.io/2017/03/26/20170326-search-boom/" title="扫雷">https://chreem.github.io/2017/03/26/20170326-search-boom/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/17/20170317-mock-server/" rel="next" title="npm发布流程">
+                <i class="fa fa-chevron-left"></i> npm发布流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/21/20170921-upload/" rel="prev" title="文件上传及注意事项">
+                文件上传及注意事项 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">Chreem</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Chreem" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:chreem@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#扫雷"><span class="nav-number">1.</span> <span class="nav-text">扫雷</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本流程"><span class="nav-number">2.</span> <span class="nav-text">基本流程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#core"><span class="nav-number">2.1.</span> <span class="nav-text">core</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格子"><span class="nav-number">2.2.</span> <span class="nav-text">格子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要哪些样式"><span class="nav-number">2.2.1.</span> <span class="nav-text">需要哪些样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格子的样式根据数据调整"><span class="nav-number">2.2.2.</span> <span class="nav-text">格子的样式根据数据调整</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#extension"><span class="nav-number">3.</span> <span class="nav-text">extension</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#trouble"><span class="nav-number">4.</span> <span class="nav-text">trouble</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-data属性数组的深度监视"><span class="nav-number">4.1.</span> <span class="nav-text">vue data属性数组的深度监视</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按队列遍历应该“点击”的位置"><span class="nav-number">4.2.</span> <span class="nav-text">按队列遍历应该“点击”的位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#胜利条件与脑细胞（或者应该是troubling）"><span class="nav-number">4.3.</span> <span class="nav-text">胜利条件与脑细胞（或者应该是troubling）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <a class="author" href="https://github.com/Chreem" target="_blank" itemprop="copyrightHolder">Chreem</a>
+
+  
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://chreem.github.io/2017/03/26/20170326-search-boom/';
+          this.page.identifier = '2017/03/26/20170326-search-boom/';
+          this.page.title = '扫雷';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://chreem.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":true,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":30,"vOffset":-50},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script>
+</body>
+</html>
